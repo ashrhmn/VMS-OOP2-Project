@@ -2,7 +2,7 @@
 
 ## A project for the final term exam of the course OOP2 in AIUB
 
-### Visual Studio Project
+### Visual Studio 2019 Project
 #### MSSQL in backend
 
 ## Voting Management System
