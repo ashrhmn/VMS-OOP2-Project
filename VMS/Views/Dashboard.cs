@@ -10,11 +10,13 @@ namespace VMS.Views
 {
     public partial class Dashboard : Form
     {
+        Repository.UserRepo ur;
         Action handleLogout;
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();
-            label1.Text = "Welcome, "+username;
+            ur = new Repository.UserRepo();
+            label1.Text = "Welcome, "+username + ur.getRole(username);
             this.handleLogout = handleLogout;
         }
 

@@ -17,7 +17,7 @@ namespace VMS.Repository
         public Boolean isAuthenticated(string username, string password)
         {
             SqlConnection connection = dbc.getConnection();
-            SqlDataAdapter adp = new SqlDataAdapter("select * from users where username='"+username+"' and password ='"+password+"'",connection);
+            SqlDataAdapter adp = new SqlDataAdapter("select * from user_credentials where username='"+username+"' and password ='"+password+"'",connection);
             int results = 0;
             try
             {
@@ -28,6 +28,10 @@ namespace VMS.Repository
                 System.Windows.Forms.MessageBox.Show(ex.ToString());
                 return false;
             }
+            finally
+            {
+                connection.Close();
+            }
             if (results!=0)
             {
                 return true;
@@ -36,6 +40,20 @@ namespace VMS.Repository
             {
                 return false;
             }
+        }
+
+        public string getRole(string username)
+        {
+            string role = null;
+            SqlConnection connection = dbc.getConnection();
+            SqlCommand cmd = new SqlCommand("select role from user_roles where username='"+username+"'", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                role = reader["role"].ToString();
+            }
+            connection.Close();
+            return role;
         }
     }
 }
