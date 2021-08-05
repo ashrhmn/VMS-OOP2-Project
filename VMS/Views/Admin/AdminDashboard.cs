@@ -33,5 +33,21 @@ namespace VMS.Views.Admin
         {
             usersGridView.DataSource = ur.getUsersDataTable();
         }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            int totalRow = usersGridView.Rows.Count;
+            foreach(DataGridViewRow row in usersGridView.SelectedRows)
+            {
+                if(row.Index == totalRow-1 || row.Index == -1)
+                {
+                    MessageBox.Show("Select a user to be deleted");
+                }
+                else
+                {
+                    usersGridView.Rows.RemoveAt(row.Index);
+                }
+            }
+        }
     }
 }

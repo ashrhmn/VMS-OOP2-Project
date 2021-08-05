@@ -32,6 +32,7 @@ namespace VMS.Views.Admin
             this.usersGridView = new System.Windows.Forms.DataGridView();
             this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,6 +42,7 @@ namespace VMS.Views.Admin
             this.usersGridView.Location = new System.Drawing.Point(32, 41);
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.RowTemplate.Height = 25;
+            this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersGridView.Size = new System.Drawing.Size(376, 272);
             this.usersGridView.TabIndex = 0;
             // 
@@ -64,11 +66,22 @@ namespace VMS.Views.Admin
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(222, 331);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSaveChanges);
             this.Controls.Add(this.usersGridView);
@@ -85,5 +98,6 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.DataGridView usersGridView;
         private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
