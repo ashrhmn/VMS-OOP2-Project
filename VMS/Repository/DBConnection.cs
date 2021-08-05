@@ -17,7 +17,10 @@ namespace VMS.Repository
 
         public SqlConnection getConnection()
         {
-            this.conn.Open();
+            if(this.conn.State != System.Data.ConnectionState.Open)
+            {
+                this.conn.Open();
+            }
             return this.conn;
         }
 

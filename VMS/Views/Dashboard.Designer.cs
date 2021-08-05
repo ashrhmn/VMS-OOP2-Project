@@ -29,21 +29,22 @@ namespace VMS.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.userInfo = new System.Windows.Forms.Label();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.dashboardViewPanel = new System.Windows.Forms.Panel();
+            this.userRoleInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // userInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(496, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome, username";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.userInfo.AutoSize = true;
+            this.userInfo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.userInfo.Location = new System.Drawing.Point(500, 14);
+            this.userInfo.Name = "userInfo";
+            this.userInfo.Size = new System.Drawing.Size(182, 25);
+            this.userInfo.TabIndex = 0;
+            this.userInfo.Text = "Welcome, username";
+            this.userInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonLogout
             // 
@@ -62,14 +63,25 @@ namespace VMS.Views
             this.dashboardViewPanel.Size = new System.Drawing.Size(776, 392);
             this.dashboardViewPanel.TabIndex = 2;
             // 
+            // userRoleInfo
+            // 
+            this.userRoleInfo.AutoSize = true;
+            this.userRoleInfo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.userRoleInfo.Location = new System.Drawing.Point(260, 14);
+            this.userRoleInfo.Name = "userRoleInfo";
+            this.userRoleInfo.Size = new System.Drawing.Size(197, 25);
+            this.userRoleInfo.TabIndex = 3;
+            this.userRoleInfo.Text = "User Role : typeOfRole";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.userRoleInfo);
             this.Controls.Add(this.dashboardViewPanel);
             this.Controls.Add(this.buttonLogout);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.userInfo);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.ResumeLayout(false);
@@ -79,8 +91,9 @@ namespace VMS.Views
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label userInfo;
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Panel dashboardViewPanel;
+        private System.Windows.Forms.Label userRoleInfo;
     }
 }

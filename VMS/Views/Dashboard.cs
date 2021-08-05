@@ -16,6 +16,7 @@ namespace VMS.Views
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();
+            this.handleLogout = handleLogout;
             ur = new Repository.UserRepo();
             string role = ur.getRole(username);
             if (role!=null)
@@ -37,8 +38,8 @@ namespace VMS.Views
                     handleLogout();
                 }
             }
-            label1.Text = "Welcome, "+username + ur.getRole(username);
-            this.handleLogout = handleLogout;
+            userInfo.Text = "Welcome, "+username;
+            userRoleInfo.Text = "User Role : "+role;
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)

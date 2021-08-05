@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace VMS.Repository
     class UserRepo
     {
         DBConnection dbc;
+        DataTable userDataTable;
 
         public UserRepo()
         {
@@ -46,7 +48,7 @@ namespace VMS.Repository
         {
             string role = null;
             SqlConnection connection = dbc.getConnection();
-            SqlCommand cmd = new SqlCommand("select role from user_roles where username='"+username+"'", connection);
+            SqlCommand cmd = new SqlCommand("select role from user_credentials where username='" + username+"'", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
@@ -54,6 +56,29 @@ namespace VMS.Repository
             }
             connection.Close();
             return role;
+        }
+
+        public DataTable getUsersDataTable()
+        {
+            //DataTable userDataTable = new DataTable();
+            userDataTable = new DataTable();
+            SqlConnection connection = dbc.getConnection();
+            SqlDataAdapter sda = new SqlDataAdapter("select * from user_credentials", connection);
+            //SqlDataReader reader = cmd.ExecuteReader();
+            //userDataTable.Load(reader);
+            sda.Fill(userDataTable);
+            connection.Close();
+            return userDataTable;
+        }
+
+        public int updateUsersDataTable(DataTable dt=null)
+        {
+            SqlConnection connection = dbc.getConnection();
+            SqlDataAdapter sda = new SqlDataAdapter("select * from user_credentials", connection);
+            SqlCommandBuilder scb = new SqlCommandBuilder(sda);
+            int row = sda.Update(userDataTable);
+            connection.Close();
+            return row;
         }
     }
 }
