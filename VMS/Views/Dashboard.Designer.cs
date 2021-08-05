@@ -31,17 +31,19 @@ namespace VMS.Views
         {
             this.label1 = new System.Windows.Forms.Label();
             this.buttonLogout = new System.Windows.Forms.Button();
+            this.dashboardViewPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(545, 9);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(496, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 32);
+            this.label1.Size = new System.Drawing.Size(182, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome, User";
+            this.label1.Text = "Welcome, username";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonLogout
             // 
@@ -53,11 +55,19 @@ namespace VMS.Views
             this.buttonLogout.UseVisualStyleBackColor = true;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
+            // dashboardViewPanel
+            // 
+            this.dashboardViewPanel.Location = new System.Drawing.Point(12, 46);
+            this.dashboardViewPanel.Name = "dashboardViewPanel";
+            this.dashboardViewPanel.Size = new System.Drawing.Size(776, 392);
+            this.dashboardViewPanel.TabIndex = 2;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dashboardViewPanel);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.label1);
             this.Name = "Dashboard";
@@ -71,5 +81,6 @@ namespace VMS.Views
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Panel dashboardViewPanel;
     }
 }

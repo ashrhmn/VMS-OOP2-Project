@@ -10,12 +10,33 @@ namespace VMS.Views
 {
     public partial class Dashboard : Form
     {
+        Form activeForm;
         Repository.UserRepo ur;
         Action handleLogout;
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();
             ur = new Repository.UserRepo();
+            string role = ur.getRole(username);
+            if (role!=null)
+            {
+                if (role == "admin")
+                {
+                    activatePanel(new Admin.AdminDashboard());
+                }
+                else if (role == "generalPublic")
+                {
+
+                }
+                else if (role == "districtManager")
+                {
+
+                }
+                else
+                {
+                    handleLogout();
+                }
+            }
             label1.Text = "Welcome, "+username + ur.getRole(username);
             this.handleLogout = handleLogout;
         }
@@ -23,6 +44,22 @@ namespace VMS.Views
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             handleLogout();
+        }
+
+        void activatePanel(Form formToActivate)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            this.activeForm = formToActivate;
+            formToActivate.TopLevel = false;
+            formToActivate.FormBorderStyle = FormBorderStyle.None;
+            formToActivate.Dock = DockStyle.Fill;
+            this.dashboardViewPanel.Controls.Add(formToActivate);
+            this.dashboardViewPanel.Tag = formToActivate;
+            formToActivate.BringToFront();
+            formToActivate.Show();
         }
     }
 }

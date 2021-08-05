@@ -36,7 +36,6 @@ namespace VMS
             this.panelMainView.Tag = formToActivate;
             formToActivate.BringToFront();
             formToActivate.Show();
-
         }
 
         void handleSignUp(string username, string password)
