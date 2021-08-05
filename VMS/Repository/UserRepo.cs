@@ -60,12 +60,9 @@ namespace VMS.Repository
 
         public DataTable getUsersDataTable()
         {
-            //DataTable userDataTable = new DataTable();
             userDataTable = new DataTable();
             SqlConnection connection = dbc.getConnection();
             SqlDataAdapter sda = new SqlDataAdapter("select * from user_credentials", connection);
-            //SqlDataReader reader = cmd.ExecuteReader();
-            //userDataTable.Load(reader);
             sda.Fill(userDataTable);
             connection.Close();
             return userDataTable;
