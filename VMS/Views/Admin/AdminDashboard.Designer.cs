@@ -32,7 +32,6 @@ namespace VMS.Views.Admin
             this.usersGridView = new System.Windows.Forms.DataGridView();
             this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
-            this.buttonDeleteOld = new System.Windows.Forms.Button();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -41,7 +40,9 @@ namespace VMS.Views.Admin
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.comboBoxOperationMode = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,16 +76,6 @@ namespace VMS.Views.Admin
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
-            // 
-            // buttonDeleteOld
-            // 
-            this.buttonDeleteOld.Location = new System.Drawing.Point(222, 331);
-            this.buttonDeleteOld.Name = "buttonDeleteOld";
-            this.buttonDeleteOld.Size = new System.Drawing.Size(75, 23);
-            this.buttonDeleteOld.TabIndex = 3;
-            this.buttonDeleteOld.Text = "Delete";
-            this.buttonDeleteOld.UseVisualStyleBackColor = true;
-            this.buttonDeleteOld.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // textBoxUsername
             // 
@@ -123,7 +114,7 @@ namespace VMS.Views.Admin
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(535, 194);
+            this.label3.Location = new System.Drawing.Point(535, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 5;
@@ -160,31 +151,64 @@ namespace VMS.Views.Admin
             this.buttonUpdate.TabIndex = 8;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
-            // buttonAdd
+            // comboBoxOperationMode
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(495, 238);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 9;
-            this.buttonAdd.Text = "Add User";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.comboBoxOperationMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOperationMode.FormattingEnabled = true;
+            this.comboBoxOperationMode.Items.AddRange(new object[] {
+            "Update Existing",
+            "Add New"});
+            this.comboBoxOperationMode.Location = new System.Drawing.Point(586, 86);
+            this.comboBoxOperationMode.Name = "comboBoxOperationMode";
+            this.comboBoxOperationMode.Size = new System.Drawing.Size(140, 23);
+            this.comboBoxOperationMode.TabIndex = 11;
+            this.comboBoxOperationMode.SelectedIndexChanged += new System.EventHandler(this.comboBoxOperationMode_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(480, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Opration Mode :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Ash",
+            "Ashik",
+            "Hello",
+            "Nil",
+            "Admin",
+            "User",
+            "New User",
+            "Ashik Rahman"});
+            this.comboBox1.Location = new System.Drawing.Point(480, 22);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(252, 23);
+            this.comboBox1.TabIndex = 12;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxOperationMode);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxUsername);
-            this.Controls.Add(this.buttonDeleteOld);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSaveChanges);
             this.Controls.Add(this.usersGridView);
@@ -202,7 +226,6 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.DataGridView usersGridView;
         private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Button buttonRefresh;
-        private System.Windows.Forms.Button buttonDeleteOld;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxPassword;
@@ -211,6 +234,8 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.ComboBox comboBoxOperationMode;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

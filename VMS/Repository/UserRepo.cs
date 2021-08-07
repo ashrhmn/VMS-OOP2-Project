@@ -18,8 +18,9 @@ namespace VMS.Repository
 
         public Boolean isAuthenticated(string username, string password)
         {
+            string query = "select * from user_credentials where username='" + username + "' and password ='" + password + "'";
             SqlConnection connection = dbc.getConnection();
-            SqlDataAdapter adp = new SqlDataAdapter("select * from user_credentials where username='"+username+"' and password ='"+password+"'",connection);
+            SqlDataAdapter adp = new SqlDataAdapter(query,connection);
             int results = 0;
             try
             {
@@ -27,7 +28,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.ToString());
+                dbc.showErrorMessage(ex, query, 32);
                 return false;
             }
             finally
@@ -42,6 +43,54 @@ namespace VMS.Repository
             {
                 return false;
             }
+        }
+
+        public Boolean updateUser(Entity.User user, string username)
+        {
+            Boolean updateSuccesful = dbc.isExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
+            if (user.Username != username)
+            {
+                //Update username throughout entire database
+                foreach (string tableName in new String[] { "user_details", "candidates" })
+                {
+                    if (!dbc.isExecuted("update " + tableName + " set username='" + user.Username + "' where username='" + username + "'"))
+                    {
+                        System.Windows.Forms.MessageBox.Show("Username may not have updated in table " + tableName + "\nHave a look in your Database");
+                    }
+                }
+            }
+            return updateSuccesful;
+        }
+
+        /*Boolean changeUsernameInTable(string tableName, string usernameOld, string usernameNew)
+        {
+            try
+            {
+                dbc.execute("update "+tableName+" set username='"+usernameNew+"' where username='"+usernameOld+"'");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }*/
+
+        public Boolean addUser(Entity.User user)
+        {
+            /*Boolean updateSuccesful = false;
+            try
+            {
+                int affectedRows = dbc.execute("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
+                updateSuccesful = true;
+            }
+            catch (Exception ex)
+            {
+                updateSuccesful = false;
+                //System.Windows.Forms.MessageBox.Show("Line 98\n"+ex.ToString());
+            }
+            return updateSuccesful;*/
+
+            return dbc.isExecuted("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
         }
 
         public string getRole(string username)

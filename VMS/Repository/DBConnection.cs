@@ -40,12 +40,40 @@ namespace VMS.Repository
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(e.ToString());
+                System.Windows.Forms.MessageBox.Show("Query : " + query + "\n\n" + e.ToString());
             }
-            finally{
+            finally
+            {
                 this.conn.Close();
             }
             return rowsAffected;
+        }
+
+        public Boolean isExecuted(string query)
+        {
+            Boolean successful = false;
+            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                this.conn.Open();
+                cmd.ExecuteNonQuery();
+                successful = true;
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Query : " + query + "\n\n" + e.ToString());
+                successful = false;
+            }
+            finally
+            {
+                this.conn.Close();
+            }
+            return successful;
+        }
+
+        public void showErrorMessage(Exception ex, string query, int lineNo)
+        {
+            System.Windows.Forms.MessageBox.Show("Error Message Box\nQuery : "+query+"\nLine no : "+lineNo+"\n\n"+ex.ToString());
         }
     }
 }
