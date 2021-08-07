@@ -32,7 +32,16 @@ namespace VMS.Views.Admin
             this.usersGridView = new System.Windows.Forms.DataGridView();
             this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.buttonDeleteOld = new System.Windows.Forms.Button();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +54,7 @@ namespace VMS.Views.Admin
             this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersGridView.Size = new System.Drawing.Size(376, 272);
             this.usersGridView.TabIndex = 0;
+            this.usersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridView_CellClick);
             // 
             // buttonSaveChanges
             // 
@@ -66,22 +76,115 @@ namespace VMS.Views.Admin
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // buttonDeleteOld
+            // 
+            this.buttonDeleteOld.Location = new System.Drawing.Point(222, 331);
+            this.buttonDeleteOld.Name = "buttonDeleteOld";
+            this.buttonDeleteOld.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteOld.TabIndex = 3;
+            this.buttonDeleteOld.Text = "Delete";
+            this.buttonDeleteOld.UseVisualStyleBackColor = true;
+            this.buttonDeleteOld.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // textBoxUsername
+            // 
+            this.textBoxUsername.Location = new System.Drawing.Point(586, 115);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(140, 23);
+            this.textBoxUsername.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(511, 118);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Username : ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(586, 151);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(140, 23);
+            this.textBoxPassword.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(511, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Password :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(535, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Role : ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxRole
+            // 
+            this.comboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRole.FormattingEnabled = true;
+            this.comboBoxRole.Items.AddRange(new object[] {
+            "Admin",
+            "District Manager",
+            "General Public"});
+            this.comboBoxRole.Location = new System.Drawing.Point(586, 185);
+            this.comboBoxRole.Name = "comboBoxRole";
+            this.comboBoxRole.Size = new System.Drawing.Size(140, 23);
+            this.comboBoxRole.TabIndex = 6;
+            // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(222, 331);
+            this.buttonDelete.Location = new System.Drawing.Point(576, 238);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(657, 238);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
+            this.buttonUpdate.TabIndex = 8;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(495, 238);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 9;
+            this.buttonAdd.Text = "Add User";
+            this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.comboBoxRole);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxUsername);
+            this.Controls.Add(this.buttonDeleteOld);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSaveChanges);
             this.Controls.Add(this.usersGridView);
@@ -90,6 +193,7 @@ namespace VMS.Views.Admin
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,6 +202,15 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.DataGridView usersGridView;
         private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonDeleteOld;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

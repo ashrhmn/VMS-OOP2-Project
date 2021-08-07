@@ -49,5 +49,12 @@ namespace VMS.Views.Admin
                 }
             }
         }
+
+        private void usersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxUsername.Text = usersGridView.SelectedRows[0].Cells[0].Value.ToString();
+            textBoxPassword.Text = usersGridView.SelectedRows[0].Cells[1].Value.ToString();
+            comboBoxRole.SelectedIndex = comboBoxRole.FindStringExact(usersGridView.SelectedRows[0].Cells[2].Value.ToString());
+        }
     }
 }

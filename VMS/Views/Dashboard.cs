@@ -21,20 +21,21 @@ namespace VMS.Views
             string role = ur.getRole(username);
             if (role!=null)
             {
-                if (role == "admin")
+                if (role == "Admin")
                 {
                     activatePanel(new Admin.AdminDashboard());
                 }
-                else if (role == "generalPublic")
+                else if (role == "General Public")
                 {
 
                 }
-                else if (role == "districtManager")
+                else if (role == "District Manager")
                 {
 
                 }
                 else
                 {
+                    MessageBox.Show("Invalid Role, Logging out...");
                     handleLogout();
                 }
             }
