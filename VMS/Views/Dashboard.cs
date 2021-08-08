@@ -27,11 +27,11 @@ namespace VMS.Views
                 }
                 else if (role == "General Public")
                 {
-
+                    activatePanel(new GeneralPublic.GeneralPublicDashboard());
                 }
                 else if (role == "District Manager")
                 {
-
+                    activatePanel(new DistrictManager.DistrictManagerDashboard());
                 }
                 else
                 {

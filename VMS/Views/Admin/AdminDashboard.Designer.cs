@@ -30,7 +30,6 @@ namespace VMS.Views.Admin
         private void InitializeComponent()
         {
             this.usersGridView = new System.Windows.Forms.DataGridView();
-            this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,24 +47,17 @@ namespace VMS.Views.Admin
             // 
             // usersGridView
             // 
+            this.usersGridView.AllowUserToAddRows = false;
+            this.usersGridView.AllowUserToDeleteRows = false;
             this.usersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersGridView.Location = new System.Drawing.Point(32, 41);
             this.usersGridView.Name = "usersGridView";
+            this.usersGridView.ReadOnly = true;
             this.usersGridView.RowTemplate.Height = 25;
             this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersGridView.Size = new System.Drawing.Size(376, 272);
             this.usersGridView.TabIndex = 0;
             this.usersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridView_CellClick);
-            // 
-            // buttonSaveChanges
-            // 
-            this.buttonSaveChanges.Location = new System.Drawing.Point(303, 331);
-            this.buttonSaveChanges.Name = "buttonSaveChanges";
-            this.buttonSaveChanges.Size = new System.Drawing.Size(105, 23);
-            this.buttonSaveChanges.TabIndex = 1;
-            this.buttonSaveChanges.Text = "Save Changes";
-            this.buttonSaveChanges.UseVisualStyleBackColor = true;
-            this.buttonSaveChanges.Click += new System.EventHandler(this.buttonSaveChanges_Click);
             // 
             // buttonRefresh
             // 
@@ -210,7 +202,6 @@ namespace VMS.Views.Admin
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.buttonRefresh);
-            this.Controls.Add(this.buttonSaveChanges);
             this.Controls.Add(this.usersGridView);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
@@ -224,7 +215,6 @@ namespace VMS.Views.Admin
         #endregion
 
         private System.Windows.Forms.DataGridView usersGridView;
-        private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label label1;
