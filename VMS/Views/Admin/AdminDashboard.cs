@@ -19,33 +19,11 @@ namespace VMS.Views.Admin
             usersGridView.DataSource = ur.getUsersDataTable();
         }
 
-        private void buttonSaveChanges_Click(object sender, EventArgs e)
-        {
-            int rows = ur.updateUsersDataTable();
-            MessageBox.Show(rows + " users has been changed");
-            usersGridView.DataSource = ur.getUsersDataTable();
-        }
-
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             usersGridView.DataSource = ur.getUsersDataTable();
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-            int totalRow = usersGridView.Rows.Count;
-            foreach (DataGridViewRow row in usersGridView.SelectedRows)
-            {
-                if (row.Index == totalRow - 1 || row.Index == -1)
-                {
-                    MessageBox.Show("Select a user to be deleted");
-                }
-                else
-                {
-                    usersGridView.Rows.RemoveAt(row.Index);
-                }
-            }
-        }
 
         public void fetchSelectedDataToTextBoxes()
         {
@@ -68,23 +46,24 @@ namespace VMS.Views.Admin
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if (comboBoxOperationMode.SelectedIndex == 0)
+
+            if (textBoxUsername.Text == "")
             {
-                //Update
-                if (textBoxUsername.Text == "")
+                MessageBox.Show("Username can not be empty");
+            }
+            else
+            {
+                if (comboBoxOperationMode.SelectedIndex == 0)
                 {
-                    MessageBox.Show("");
-                }
-                else
-                {
+                    //Update
                     if (ur.updateUser(
-                        new Entity.User(
-                            textBoxUsername.Text,
-                            textBoxPassword.Text,
-                            comboBoxRole.Text
-                            ),
-                        usersGridView.SelectedRows[0].Cells[0].Value.ToString() //username from selected row
-                        ))
+                            new Entity.User(
+                                textBoxUsername.Text,
+                                textBoxPassword.Text,
+                                comboBoxRole.Text
+                                ),
+                            usersGridView.SelectedRows[0].Cells[0].Value.ToString() //username from selected row
+                            ))
                     {
                         MessageBox.Show("Updated successfullly");
                     }
@@ -93,14 +72,27 @@ namespace VMS.Views.Admin
                         MessageBox.Show("Update Failed");
                     }
                 }
-            }
-            else
-            {
-                //Add
-            }
+                else
+                {
+                    //Add
+                    if (ur.addUser(new Entity.User(
+                                textBoxUsername.Text,
+                                textBoxPassword.Text,
+                                comboBoxRole.Text
+                        )))
+                    {
+                        MessageBox.Show("User added successfullly");
+                    }
+                    else
+                    {
+                        MessageBox.Show("User add Failed");
+                    }
+                }
 
-            emptyTextBoxes();
-            usersGridView.DataSource = ur.getUsersDataTable();
+                emptyTextBoxes();
+                usersGridView.DataSource = ur.getUsersDataTable();
+            }
+            
         }
 
 
@@ -118,7 +110,35 @@ namespace VMS.Views.Admin
                 buttonUpdate.Text = "Add";
                 buttonDelete.Enabled = false;
             }
-            MessageBox.Show("" + comboBoxRole.SelectedIndex);
+        }
+
+        private void buttonDelete_Click_1(object sender, EventArgs e)
+        {
+            if(textBoxUsername.Text == "")
+            {
+                MessageBox.Show("Select a user to be deleted", "Error");
+            }
+            else
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                                     "Confirm Delete!",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    if (ur.deleteUser(textBoxUsername.Text))
+                    {
+                        MessageBox.Show("User deleted successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete Error");
+                    }
+
+                }
+                emptyTextBoxes();
+                usersGridView.DataSource = ur.getUsersDataTable();
+            }
+            
         }
     }
 }

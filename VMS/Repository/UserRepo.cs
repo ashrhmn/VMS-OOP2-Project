@@ -55,42 +55,29 @@ namespace VMS.Repository
                 {
                     if (!dbc.isExecuted("update " + tableName + " set username='" + user.Username + "' where username='" + username + "'"))
                     {
-                        System.Windows.Forms.MessageBox.Show("Username may not have updated in table " + tableName + "\nHave a look in your Database");
+                        System.Windows.Forms.MessageBox.Show("Username may not have been updated in table " + tableName + "\nHave a look in your Database");
                     }
                 }
             }
             return updateSuccesful;
         }
 
-        /*Boolean changeUsernameInTable(string tableName, string usernameOld, string usernameNew)
-        {
-            try
-            {
-                dbc.execute("update "+tableName+" set username='"+usernameNew+"' where username='"+usernameOld+"'");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }*/
-
         public Boolean addUser(Entity.User user)
         {
-            /*Boolean updateSuccesful = false;
-            try
-            {
-                int affectedRows = dbc.execute("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
-                updateSuccesful = true;
-            }
-            catch (Exception ex)
-            {
-                updateSuccesful = false;
-                //System.Windows.Forms.MessageBox.Show("Line 98\n"+ex.ToString());
-            }
-            return updateSuccesful;*/
-
             return dbc.isExecuted("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
+        }
+
+        public Boolean deleteUser(string username)
+        {
+            //Delete username throughout entire database
+            foreach (string tableName in new String[] { "user_details", "candidates" })
+            {
+                if (!dbc.isExecuted("delete from "+tableName+" where username='" + username + "'"))
+                {
+                    System.Windows.Forms.MessageBox.Show("Username may not have been deleted in table " + tableName + "\nHave a look in your Database");
+                }
+            }
+            return dbc.isExecuted("delete from user_credentials where username='"+username+"'");
         }
 
         public string getRole(string username)
