@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
 using System.Text;
 
 namespace VMS.Repository
@@ -9,10 +11,11 @@ namespace VMS.Repository
     {
         readonly SqlConnection conn;
         string connectionString = "Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019";
+        LocalRepo lr;
         public DBConnection()
         {
             this.conn = new SqlConnection(connectionString);
-            
+            lr = new LocalRepo();
         }
 
         public SqlConnection GetConnection()
@@ -71,9 +74,13 @@ namespace VMS.Repository
             return successful;
         }
 
-        public System.Data.DataTable GetDataTable(String query)
+        public List<T> GetDataTableAsList<T>(String query)
         {
-            System.Data.DataTable dt = new System.Data.DataTable();
+            return lr.ConvertDataTableToList<T>(GetDataTable(query));
+        }
+        public DataTable GetDataTable(String query)
+        {
+            DataTable dt = new DataTable();
 
             SqlConnection connection = GetConnection();
             try

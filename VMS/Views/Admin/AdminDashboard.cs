@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace VMS.Views.Admin
@@ -16,12 +17,12 @@ namespace VMS.Views.Admin
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-            usersGridView.DataSource = ur.getUsersDataTable();
+            usersGridView.DataSource = ur.GetUsersDataTable();
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            usersGridView.DataSource = ur.getUsersDataTable();
+            usersGridView.DataSource = ur.GetUsersDataTable();
         }
 
 
@@ -56,7 +57,7 @@ namespace VMS.Views.Admin
                 if (comboBoxOperationMode.SelectedIndex == 0)
                 {
                     //Update
-                    if (ur.updateUser(
+                    if (ur.UpdateUser(
                             new Entity.User(
                                 textBoxUsername.Text,
                                 textBoxPassword.Text,
@@ -75,7 +76,7 @@ namespace VMS.Views.Admin
                 else
                 {
                     //Add
-                    if (ur.addUser(new Entity.User(
+                    if (ur.AddUser(new Entity.User(
                                 textBoxUsername.Text,
                                 textBoxPassword.Text,
                                 comboBoxRole.Text
@@ -90,7 +91,7 @@ namespace VMS.Views.Admin
                 }
 
                 emptyTextBoxes();
-                usersGridView.DataSource = ur.getUsersDataTable();
+                usersGridView.DataSource = ur.GetUsersDataTable();
             }
             
         }
@@ -112,9 +113,9 @@ namespace VMS.Views.Admin
             }
         }
 
-        private void buttonDelete_Click_1(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if(textBoxUsername.Text == "")
+            if (textBoxUsername.Text == "")
             {
                 MessageBox.Show("Select a user to be deleted", "Error");
             }
@@ -125,7 +126,7 @@ namespace VMS.Views.Admin
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    if (ur.deleteUser(textBoxUsername.Text))
+                    if (ur.DeleteUser(textBoxUsername.Text))
                     {
                         MessageBox.Show("User deleted successfully");
                     }
@@ -136,9 +137,24 @@ namespace VMS.Views.Admin
 
                 }
                 emptyTextBoxes();
-                usersGridView.DataSource = ur.getUsersDataTable();
+                usersGridView.DataSource = ur.GetUsersDataTable();
             }
-            
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+            List<Entity.User> userList = ur.GetUsersDataList();
+            String message = "";
+            foreach (Entity.User user in userList){
+                System.Diagnostics.Debug.WriteLine(user.Username+"\n");
+                //message += user.Username+"\n\n";
+            }
+            userList.ForEach(delegate (Entity.User user)
+            {
+                message += user.Username + "\n\n";
+            });
+            MessageBox.Show(message);
+
         }
     }
 }

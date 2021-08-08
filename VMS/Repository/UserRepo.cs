@@ -15,7 +15,7 @@ namespace VMS.Repository
             dbc = new DBConnection();
         }
 
-        public Boolean isAuthenticated(string username, string password)
+        public bool IsAuthenticated(string username, string password)
         {
             string query = "select * from user_credentials where username='" + username + "' and password ='" + password + "'";
             SqlConnection connection = dbc.GetConnection();
@@ -44,7 +44,7 @@ namespace VMS.Repository
             }
         }
 
-        public Boolean updateUser(Entity.User user, string username)
+        public bool UpdateUser(Entity.User user, string username)
         {
             Boolean updateSuccesful = dbc.IsExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
             if (user.Username != username)
@@ -61,12 +61,12 @@ namespace VMS.Repository
             return updateSuccesful;
         }
 
-        public Boolean addUser(Entity.User user)
+        public bool AddUser(Entity.User user)
         {
             return dbc.IsExecuted("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
         }
 
-        public Boolean deleteUser(string username)
+        public bool DeleteUser(string username)
         {
             //Delete username throughout entire database
             foreach (string tableName in new String[] { "user_details", "candidates" })
@@ -79,7 +79,7 @@ namespace VMS.Repository
             return dbc.IsExecuted("delete from user_credentials where username='"+username+"'");
         }
 
-        public string getRole(string username)
+        public string GetRole(string username)
         {
             string role = null;
             SqlConnection connection = dbc.GetConnection();
@@ -93,9 +93,15 @@ namespace VMS.Repository
             return role;
         }
 
-        public DataTable getUsersDataTable()
+        public DataTable GetUsersDataTable()
         {
             return dbc.GetDataTable("select * from user_credentials");
+        }
+
+
+        public List<Entity.User> GetUsersDataList()
+        {
+            return dbc.GetDataTableAsList<Entity.User>("select * from user_credentials");
         }
     }
 }

@@ -60,7 +60,7 @@ namespace VMS
         void handleLogin(string username, string password)
         {
             Repository.UserRepo ur = new Repository.UserRepo();
-            if (ur.isAuthenticated(username, password))
+            if (ur.IsAuthenticated(username, password))
             {
                 MessageBox.Show("Logged in as "+username);
                 activatePanel(new Views.Dashboard(username,handleLogout));

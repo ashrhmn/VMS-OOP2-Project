@@ -18,7 +18,7 @@ namespace VMS.Views
             InitializeComponent();
             this.handleLogout = handleLogout;
             ur = new Repository.UserRepo();
-            string role = ur.getRole(username);
+            string role = ur.GetRole(username);
             if (role!=null)
             {
                 if (role == "Admin")

@@ -10,6 +10,11 @@ namespace VMS.Entity
         string password;
         string role;
 
+        public User()
+        {
+
+        }
+
         public User(string username, string password, string role)
         {
             this.username = username;
