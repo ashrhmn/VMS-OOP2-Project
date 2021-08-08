@@ -9,7 +9,6 @@ namespace VMS.Repository
     class UserRepo
     {
         DBConnection dbc;
-        DataTable userDataTable;
 
         public UserRepo()
         {
@@ -19,7 +18,7 @@ namespace VMS.Repository
         public Boolean isAuthenticated(string username, string password)
         {
             string query = "select * from user_credentials where username='" + username + "' and password ='" + password + "'";
-            SqlConnection connection = dbc.getConnection();
+            SqlConnection connection = dbc.GetConnection();
             SqlDataAdapter adp = new SqlDataAdapter(query,connection);
             int results = 0;
             try
@@ -28,7 +27,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                dbc.showErrorMessage(ex, query, 32);
+                dbc.ShowErrorMessage(ex, query, 32);
                 return false;
             }
             finally
@@ -47,13 +46,13 @@ namespace VMS.Repository
 
         public Boolean updateUser(Entity.User user, string username)
         {
-            Boolean updateSuccesful = dbc.isExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
+            Boolean updateSuccesful = dbc.IsExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
             if (user.Username != username)
             {
                 //Update username throughout entire database
                 foreach (string tableName in new String[] { "user_details", "candidates" })
                 {
-                    if (!dbc.isExecuted("update " + tableName + " set username='" + user.Username + "' where username='" + username + "'"))
+                    if (!dbc.IsExecuted("update " + tableName + " set username='" + user.Username + "' where username='" + username + "'"))
                     {
                         System.Windows.Forms.MessageBox.Show("Username may not have been updated in table " + tableName + "\nHave a look in your Database");
                     }
@@ -64,7 +63,7 @@ namespace VMS.Repository
 
         public Boolean addUser(Entity.User user)
         {
-            return dbc.isExecuted("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
+            return dbc.IsExecuted("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
         }
 
         public Boolean deleteUser(string username)
@@ -72,18 +71,18 @@ namespace VMS.Repository
             //Delete username throughout entire database
             foreach (string tableName in new String[] { "user_details", "candidates" })
             {
-                if (!dbc.isExecuted("delete from "+tableName+" where username='" + username + "'"))
+                if (!dbc.IsExecuted("delete from "+tableName+" where username='" + username + "'"))
                 {
                     System.Windows.Forms.MessageBox.Show("Username may not have been deleted in table " + tableName + "\nHave a look in your Database");
                 }
             }
-            return dbc.isExecuted("delete from user_credentials where username='"+username+"'");
+            return dbc.IsExecuted("delete from user_credentials where username='"+username+"'");
         }
 
         public string getRole(string username)
         {
             string role = null;
-            SqlConnection connection = dbc.getConnection();
+            SqlConnection connection = dbc.GetConnection();
             SqlCommand cmd = new SqlCommand("select role from user_credentials where username='" + username+"'", connection);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
@@ -96,22 +95,7 @@ namespace VMS.Repository
 
         public DataTable getUsersDataTable()
         {
-            userDataTable = new DataTable();
-            SqlConnection connection = dbc.getConnection();
-            SqlDataAdapter sda = new SqlDataAdapter("select * from user_credentials", connection);
-            sda.Fill(userDataTable);
-            connection.Close();
-            return userDataTable;
-        }
-
-        public int updateUsersDataTable(DataTable dt=null)
-        {
-            SqlConnection connection = dbc.getConnection();
-            SqlDataAdapter sda = new SqlDataAdapter("select * from user_credentials", connection);
-            SqlCommandBuilder scb = new SqlCommandBuilder(sda);
-            int row = sda.Update(userDataTable);
-            connection.Close();
-            return row;
+            return dbc.GetDataTable("select * from user_credentials");
         }
     }
 }
