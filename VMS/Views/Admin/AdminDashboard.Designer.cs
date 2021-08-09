@@ -42,6 +42,7 @@ namespace VMS.Views.Admin
             this.comboBoxOperationMode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.userNameErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@ namespace VMS.Views.Admin
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(586, 115);
+            this.textBoxUsername.Location = new System.Drawing.Point(544, 134);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(140, 23);
             this.textBoxUsername.TabIndex = 4;
@@ -80,7 +81,7 @@ namespace VMS.Views.Admin
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(511, 118);
+            this.label1.Location = new System.Drawing.Point(469, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 15);
             this.label1.TabIndex = 5;
@@ -89,7 +90,7 @@ namespace VMS.Views.Admin
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(586, 151);
+            this.textBoxPassword.Location = new System.Drawing.Point(544, 170);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(140, 23);
             this.textBoxPassword.TabIndex = 4;
@@ -97,7 +98,7 @@ namespace VMS.Views.Admin
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(511, 154);
+            this.label2.Location = new System.Drawing.Point(469, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 15);
             this.label2.TabIndex = 5;
@@ -107,7 +108,7 @@ namespace VMS.Views.Admin
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(535, 188);
+            this.label3.Location = new System.Drawing.Point(493, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 5;
@@ -122,14 +123,14 @@ namespace VMS.Views.Admin
             "Admin",
             "District Manager",
             "General Public"});
-            this.comboBoxRole.Location = new System.Drawing.Point(586, 185);
+            this.comboBoxRole.Location = new System.Drawing.Point(544, 204);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(140, 23);
             this.comboBoxRole.TabIndex = 6;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(576, 238);
+            this.buttonDelete.Location = new System.Drawing.Point(534, 257);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 7;
@@ -139,7 +140,7 @@ namespace VMS.Views.Admin
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(657, 238);
+            this.buttonUpdate.Location = new System.Drawing.Point(615, 257);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonUpdate.TabIndex = 8;
@@ -154,7 +155,7 @@ namespace VMS.Views.Admin
             this.comboBoxOperationMode.Items.AddRange(new object[] {
             "Update Existing",
             "Add New"});
-            this.comboBoxOperationMode.Location = new System.Drawing.Point(586, 86);
+            this.comboBoxOperationMode.Location = new System.Drawing.Point(544, 105);
             this.comboBoxOperationMode.Name = "comboBoxOperationMode";
             this.comboBoxOperationMode.Size = new System.Drawing.Size(140, 23);
             this.comboBoxOperationMode.TabIndex = 11;
@@ -163,7 +164,7 @@ namespace VMS.Views.Admin
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(480, 89);
+            this.label4.Location = new System.Drawing.Point(438, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 15);
             this.label4.TabIndex = 5;
@@ -182,16 +183,26 @@ namespace VMS.Views.Admin
             "User",
             "New User",
             "Ashik Rahman"});
-            this.comboBox1.Location = new System.Drawing.Point(480, 22);
+            this.comboBox1.Location = new System.Drawing.Point(438, 41);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(252, 23);
             this.comboBox1.TabIndex = 12;
+            // 
+            // userNameErrorLabel
+            // 
+            this.userNameErrorLabel.AutoSize = true;
+            this.userNameErrorLabel.Location = new System.Drawing.Point(690, 137);
+            this.userNameErrorLabel.Name = "userNameErrorLabel";
+            this.userNameErrorLabel.Size = new System.Drawing.Size(44, 15);
+            this.userNameErrorLabel.TabIndex = 13;
+            this.userNameErrorLabel.Text = "ErrMsg";
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.userNameErrorLabel);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboBoxOperationMode);
             this.Controls.Add(this.buttonUpdate);
@@ -229,5 +240,6 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.ComboBox comboBoxOperationMode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label userNameErrorLabel;
     }
 }

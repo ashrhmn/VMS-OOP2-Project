@@ -41,9 +41,9 @@ namespace VMS.Repository
                 this.conn.Open();
                 rowsAffected = cmd.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Query : " + query + "\n\n" + e.ToString());
+                ShowErrorMessage(ex, query);
             }
             finally
             {
@@ -62,9 +62,9 @@ namespace VMS.Repository
                 cmd.ExecuteNonQuery();
                 successful = true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Query : " + query + "\n\n" + e.ToString());
+                ShowErrorMessage(ex, query);
                 successful = false;
             }
             finally

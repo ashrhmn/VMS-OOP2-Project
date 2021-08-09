@@ -1,28 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
+using VMS.Entity;
 
 namespace VMS.Views.Admin
 {
     public partial class AdminDashboard : Form
     {
+        private System.Data.DataTable usersDataTable;
         Repository.UserRepo ur;
+        Repository.LocalRepo lr;
         public AdminDashboard()
         {
             InitializeComponent();
             ur = new Repository.UserRepo();
+            lr = new Repository.LocalRepo();
             comboBoxOperationMode.SelectedIndex = 0;
             comboBoxRole.SelectedIndex = 0;
+            UpdateDataTable();
+            userNameErrorLabel.Text = "";
+        }
+
+        public void UpdateDataTable()
+        {
+            usersDataTable = ur.GetUsersDataTable();
+            usersGridView.DataSource = usersDataTable;
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-            usersGridView.DataSource = ur.GetUsersDataTable();
+            UpdateDataTable();
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            usersGridView.DataSource = ur.GetUsersDataTable();
+            UpdateDataTable();
         }
 
 
@@ -91,7 +104,7 @@ namespace VMS.Views.Admin
                 }
 
                 emptyTextBoxes();
-                usersGridView.DataSource = ur.GetUsersDataTable();
+                UpdateDataTable();
             }
             
         }
@@ -108,7 +121,7 @@ namespace VMS.Views.Admin
             else
             {
                 //Add Mode
-                buttonUpdate.Text = "Add";
+                buttonUpdate.Text = @"Add";
                 buttonDelete.Enabled = false;
             }
         }
@@ -117,11 +130,11 @@ namespace VMS.Views.Admin
         {
             if (textBoxUsername.Text == "")
             {
-                MessageBox.Show("Select a user to be deleted", "Error");
+                MessageBox.Show(@"Select a user to be deleted", @"Error");
             }
             else
             {
-                var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                var confirmResult = MessageBox.Show("Are you sure to delete this item ?",
                                      "Confirm Delete!",
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
@@ -137,24 +150,47 @@ namespace VMS.Views.Admin
 
                 }
                 emptyTextBoxes();
-                usersGridView.DataSource = ur.GetUsersDataTable();
+                UpdateDataTable();
             }
         }
 
         private void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
-            List<Entity.User> userList = ur.GetUsersDataList();
-            String message = "";
-            foreach (Entity.User user in userList){
-                System.Diagnostics.Debug.WriteLine(user.Username+"\n");
-                //message += user.Username+"\n\n";
-            }
-            userList.ForEach(delegate (Entity.User user)
+            if (comboBoxOperationMode.SelectedIndex == 1)
             {
-                message += user.Username + "\n\n";
-            });
-            MessageBox.Show(message);
+                if (textBoxUsername.Text == "" || textBoxUsername.Text == usersGridView.SelectedRows[0].Cells[0].Value.ToString())
+                {
+                    UpdateDataTable();
+                }
 
+                List<Entity.User> userList = lr.ConvertDataTableToList<Entity.User>(usersDataTable);
+
+
+                foreach (Entity.User user in userList.ToArray())
+                {
+                    if (user.Username == textBoxUsername.Text)
+                    {
+                        userNameErrorLabel.Text = @"❌";
+                        userNameErrorLabel.ForeColor = Color.OrangeRed;
+                        textBoxUsername.ForeColor = Color.OrangeRed;
+                        buttonUpdate.Enabled = false;
+
+                        break;
+                    }
+
+                    if (textBoxUsername.Text == "")
+                    {
+                        userNameErrorLabel.Text = "";
+                    }
+                    else
+                    {
+                        userNameErrorLabel.Text = @"✅";
+                    }
+                    userNameErrorLabel.ForeColor = Color.LimeGreen;
+                    textBoxUsername.ForeColor = Color.Black;
+                    buttonUpdate.Enabled = true;
+                }
+            }
         }
     }
 }

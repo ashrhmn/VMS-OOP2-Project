@@ -37,5 +37,16 @@ namespace VMS.Repository
             }
             return obj;
         }
+
+
+        public void ShowErrorMessage(Exception ex, string query, int lineNo)
+        {
+            System.Windows.Forms.MessageBox.Show("Error Message Box\nQuery : " + query + "\nLine no : " + lineNo + "\n\n" + ex.ToString());
+        }
+
+        public void ShowErrorMessage(Exception ex, string query)
+        {
+            System.Windows.Forms.MessageBox.Show("Error Message Box\nQuery : " + query + "\n\n" + ex.ToString());
+        }
     }
 }
