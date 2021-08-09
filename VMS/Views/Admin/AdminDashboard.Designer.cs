@@ -41,7 +41,6 @@ namespace VMS.Views.Admin
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.comboBoxOperationMode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.userNameErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
@@ -171,23 +170,6 @@ namespace VMS.Views.Admin
             this.label4.Text = "Opration Mode :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ash",
-            "Ashik",
-            "Hello",
-            "Nil",
-            "Admin",
-            "User",
-            "New User",
-            "Ashik Rahman"});
-            this.comboBox1.Location = new System.Drawing.Point(438, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(252, 23);
-            this.comboBox1.TabIndex = 12;
-            // 
             // userNameErrorLabel
             // 
             this.userNameErrorLabel.AutoSize = true;
@@ -203,7 +185,6 @@ namespace VMS.Views.Admin
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
             this.Controls.Add(this.userNameErrorLabel);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboBoxOperationMode);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonDelete);
@@ -239,7 +220,6 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.ComboBox comboBoxOperationMode;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label userNameErrorLabel;
     }
 }

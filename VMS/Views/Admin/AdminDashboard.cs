@@ -163,10 +163,7 @@ namespace VMS.Views.Admin
                     UpdateDataTable();
                 }
 
-                List<Entity.User> userList = lr.ConvertDataTableToList<Entity.User>(usersDataTable);
-
-
-                foreach (Entity.User user in userList.ToArray())
+                foreach (Entity.User user in lr.ConvertDataTableToList<Entity.User>(usersDataTable).ToArray())
                 {
                     if (user.Username == textBoxUsername.Text)
                     {
