@@ -11,8 +11,8 @@ namespace VMS.Views
     public partial class Dashboard : Form
     {
         Form activeForm;
-        Repository.UserRepo ur;
-        Action handleLogout;
+        readonly Repository.UserRepo ur;
+        readonly Action handleLogout;
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();

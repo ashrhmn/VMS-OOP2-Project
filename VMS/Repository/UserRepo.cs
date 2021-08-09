@@ -98,6 +98,11 @@ namespace VMS.Repository
             return dbc.GetDataTable("select * from user_credentials");
         }
 
+        public DataTable GetGeneralPublicDataTable()
+        {
+            return dbc.GetDataTable("select username from user_credentials where role='General Public'");
+        }
+
 
         public List<Entity.User> GetUsersDataList()
         {

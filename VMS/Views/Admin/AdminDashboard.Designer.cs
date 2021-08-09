@@ -53,6 +53,7 @@ namespace VMS.Views.Admin
             this.usersGridView.Location = new System.Drawing.Point(32, 41);
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.ReadOnly = true;
+            this.usersGridView.RowHeadersVisible = false;
             this.usersGridView.RowTemplate.Height = 25;
             this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersGridView.Size = new System.Drawing.Size(376, 272);
