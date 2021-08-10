@@ -12,17 +12,17 @@ namespace VMS.Views.GeneralPublic
 {
     public partial class GeneralPublicDashboard : Form
     {
-        private UserDetailRepo udr;
+        private readonly UserDetailRepo _udr;
         public GeneralPublicDashboard(string username)
         {
             InitializeComponent();
-            udr = new UserDetailRepo();
+            _udr = new UserDetailRepo();
             RefreshData(username);
         }
 
         void RefreshData(string username)
         {
-            UserDetail userDetail = udr.GetUserDetail(username);
+            UserDetail userDetail = _udr.GetUserDetail(username);
             if (userDetail != null)
             {
                 textBoxUsername.Text = userDetail.UserName;
