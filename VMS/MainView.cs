@@ -13,22 +13,22 @@ namespace VMS
 {
     public partial class MainView : Form
     {
+        public new Form ActiveForm;
         public MainView()
         {
             InitializeComponent();
 
-            activatePanel(new Views.LoginView(handleLogin));
+            ActivatePanel(new Views.LoginView(HandleLogin));
         }
 
-        public Form activeForm { get; private set; }
 
-        void activatePanel(Form formToActivate)
+        void ActivatePanel(Form formToActivate)
         {
-            if (activeForm != null)
+            if (ActiveForm != null)
             {
-                activeForm.Close();
+                ActiveForm.Close();
             }
-            this.activeForm = formToActivate;
+            this.ActiveForm = formToActivate;
             formToActivate.TopLevel = false;
             formToActivate.FormBorderStyle = FormBorderStyle.None;
             formToActivate.Dock = DockStyle.Fill;
@@ -38,7 +38,7 @@ namespace VMS
             formToActivate.Show();
         }
 
-        void handleSignUp(string username, string password)
+        void HandleSignUp(string username, string password)
         {
             SqlConnection conn = new SqlConnection("Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019");
             //activatePanel(new Views.Dashboard());
@@ -57,23 +57,23 @@ namespace VMS
             conn.Close();
         }
 
-        void handleLogin(string username, string password)
+        void HandleLogin(string username, string password)
         {
             Repository.UserRepo ur = new Repository.UserRepo();
             if (ur.IsAuthenticated(username, password))
             {
                 MessageBox.Show("Logged in as "+username);
-                activatePanel(new Views.Dashboard(username,handleLogout));
+                ActivatePanel(new Views.Dashboard(username,HandleLogout));
             }
             else
             {
-                MessageBox.Show("Invalid username or password");
+                MessageBox.Show(@"Invalid username or password");
             }
         }
 
-        void handleLogout()
+        void HandleLogout()
         {
-            activatePanel(new Views.LoginView(handleLogin));
+            ActivatePanel(new Views.LoginView(HandleLogin));
         }
 
         private void label1_Click(object sender, EventArgs e)

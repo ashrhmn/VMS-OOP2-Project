@@ -8,14 +8,14 @@ namespace VMS.Views.Admin
 {
     public partial class AdminDashboard : Form
     {
-        private System.Data.DataTable usersDataTable;
-        Repository.UserRepo ur;
-        Repository.LocalRepo lr;
+        private System.Data.DataTable _usersDataTable;
+        Repository.UserRepo _ur;
+        Repository.LocalRepo _lr;
         public AdminDashboard()
         {
             InitializeComponent();
-            ur = new Repository.UserRepo();
-            lr = new Repository.LocalRepo();
+            _ur = new Repository.UserRepo();
+            _lr = new Repository.LocalRepo();
             comboBoxOperationMode.SelectedIndex = 0;
             comboBoxRole.SelectedIndex = 0;
             UpdateDataTable();
@@ -24,8 +24,8 @@ namespace VMS.Views.Admin
 
         public void UpdateDataTable()
         {
-            usersDataTable = ur.GetUsersDataTable();
-            usersGridView.DataSource = usersDataTable;
+            _usersDataTable = _ur.GetUsersDataTable();
+            usersGridView.DataSource = _usersDataTable;
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace VMS.Views.Admin
         }
 
 
-        public void fetchSelectedDataToTextBoxes()
+        public void FetchSelectedDataToTextBoxes()
         {
             textBoxUsername.Text = usersGridView.SelectedRows[0].Cells[0].Value.ToString();
             textBoxPassword.Text = usersGridView.SelectedRows[0].Cells[1].Value.ToString();
             comboBoxRole.SelectedIndex = comboBoxRole.FindStringExact(usersGridView.SelectedRows[0].Cells[2].Value.ToString());
         }
 
-        public void emptyTextBoxes()
+        public void EmptyTextBoxes()
         {
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
@@ -55,7 +55,7 @@ namespace VMS.Views.Admin
 
         private void usersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            fetchSelectedDataToTextBoxes();
+            FetchSelectedDataToTextBoxes();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -63,14 +63,14 @@ namespace VMS.Views.Admin
 
             if (textBoxUsername.Text == "")
             {
-                MessageBox.Show("Username can not be empty");
+                MessageBox.Show(@"Username can not be empty");
             }
             else
             {
                 if (comboBoxOperationMode.SelectedIndex == 0)
                 {
                     //Update
-                    if (ur.UpdateUser(
+                    if (_ur.UpdateUser(
                             new Entity.User(
                                 textBoxUsername.Text,
                                 textBoxPassword.Text,
@@ -79,31 +79,31 @@ namespace VMS.Views.Admin
                             usersGridView.SelectedRows[0].Cells[0].Value.ToString() //username from selected row
                             ))
                     {
-                        MessageBox.Show("Updated successfullly");
+                        MessageBox.Show(@"Updated successfullly");
                     }
                     else
                     {
-                        MessageBox.Show("Update Failed");
+                        MessageBox.Show(@"Update Failed");
                     }
                 }
                 else
                 {
                     //Add
-                    if (ur.AddUser(new Entity.User(
+                    if (_ur.AddUser(new Entity.User(
                                 textBoxUsername.Text,
                                 textBoxPassword.Text,
                                 comboBoxRole.Text
                         )))
                     {
-                        MessageBox.Show("User added successfullly");
+                        MessageBox.Show(@"User added successfullly");
                     }
                     else
                     {
-                        MessageBox.Show("User add Failed");
+                        MessageBox.Show(@"User add Failed");
                     }
                 }
 
-                emptyTextBoxes();
+                EmptyTextBoxes();
                 UpdateDataTable();
             }
             
@@ -139,17 +139,17 @@ namespace VMS.Views.Admin
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    if (ur.DeleteUser(textBoxUsername.Text))
+                    if (_ur.DeleteUser(textBoxUsername.Text))
                     {
-                        MessageBox.Show("User deleted successfully");
+                        MessageBox.Show(@"User deleted successfully");
                     }
                     else
                     {
-                        MessageBox.Show("Delete Error");
+                        MessageBox.Show(@"Delete Error");
                     }
 
                 }
-                emptyTextBoxes();
+                EmptyTextBoxes();
                 UpdateDataTable();
             }
         }
@@ -163,7 +163,7 @@ namespace VMS.Views.Admin
                     UpdateDataTable();
                 }
 
-                foreach (Entity.User user in lr.ConvertDataTableToList<Entity.User>(usersDataTable).ToArray())
+                foreach (Entity.User user in _lr.ConvertDataTableToList<Entity.User>(_usersDataTable).ToArray())
                 {
                     if (user.Username == textBoxUsername.Text)
                     {

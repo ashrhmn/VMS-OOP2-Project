@@ -10,32 +10,32 @@ namespace VMS.Views
 {
     public partial class Dashboard : Form
     {
-        Form activeForm;
-        readonly Repository.UserRepo ur;
-        readonly Action handleLogout;
+        Form _activeForm;
+        readonly Repository.UserRepo _ur;
+        readonly Action _handleLogout;
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();
-            this.handleLogout = handleLogout;
-            ur = new Repository.UserRepo();
-            string role = ur.GetRole(username);
+            this._handleLogout = handleLogout;
+            _ur = new Repository.UserRepo();
+            string role = _ur.GetRole(username);
             if (role!=null)
             {
                 if (role == "Admin")
                 {
-                    activatePanel(new Admin.AdminDashboard());
+                    ActivatePanel(new Admin.AdminDashboard());
                 }
                 else if (role == "General Public")
                 {
-                    activatePanel(new GeneralPublic.GeneralPublicDashboard());
+                    ActivatePanel(new GeneralPublic.GeneralPublicDashboard());
                 }
                 else if (role == "District Manager")
                 {
-                    activatePanel(new DistrictManager.DistrictManagerDashboard());
+                    ActivatePanel(new DistrictManager.DistrictManagerDashboard());
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Role, Logging out...");
+                    MessageBox.Show(@"Invalid Role, Logging out...");
                     handleLogout();
                 }
             }
@@ -45,16 +45,16 @@ namespace VMS.Views
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            handleLogout();
+            _handleLogout();
         }
 
-        void activatePanel(Form formToActivate)
+        void ActivatePanel(Form formToActivate)
         {
-            if (activeForm != null)
+            if (_activeForm != null)
             {
-                activeForm.Close();
+                _activeForm.Close();
             }
-            this.activeForm = formToActivate;
+            this._activeForm = formToActivate;
             formToActivate.TopLevel = false;
             formToActivate.FormBorderStyle = FormBorderStyle.None;
             formToActivate.Dock = DockStyle.Fill;

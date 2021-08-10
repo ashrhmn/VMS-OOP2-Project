@@ -10,17 +10,17 @@ namespace VMS.Views
 {
     public partial class LoginView : Form
     {
-        Action<string, string> handleLogin;
+        Action<string, string> _handleLogin;
         public LoginView(Action<string,string> handleLogin)
         {
             InitializeComponent();
-            this.handleLogin = handleLogin;
+            this._handleLogin = handleLogin;
             this.password.PasswordChar = '*';
         }
 
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
-            handleLogin(username.Text, password.Text);
+            _handleLogin(username.Text, password.Text);
         }
     }
 }

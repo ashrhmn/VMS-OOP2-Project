@@ -7,38 +7,38 @@ using System.Text;
 
 namespace VMS.Repository
 {
-    class DBConnection
+    class DbConnection
     {
-        readonly SqlConnection conn;
-        string connectionString = "Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019";
-        LocalRepo lr;
-        public DBConnection()
+        readonly SqlConnection _conn;
+        string _connectionString = "Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019";
+        LocalRepo _lr;
+        public DbConnection()
         {
-            this.conn = new SqlConnection(connectionString);
-            lr = new LocalRepo();
+            this._conn = new SqlConnection(_connectionString);
+            _lr = new LocalRepo();
         }
 
         public SqlConnection GetConnection()
         {
-            if(this.conn.State != System.Data.ConnectionState.Open)
+            if(this._conn.State != System.Data.ConnectionState.Open)
             {
-                this.conn.Open();
+                this._conn.Open();
             }
-            return this.conn;
+            return this._conn;
         }
 
         public void CloseConnection()
         {
-            this.conn.Close();
+            this._conn.Close();
         }
 
         public int Execute(string query)
         {
-            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlCommand cmd = new SqlCommand(query, _conn);
             int rowsAffected = 0;
             try
             {
-                this.conn.Open();
+                this._conn.Open();
                 rowsAffected = cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace VMS.Repository
             }
             finally
             {
-                this.conn.Close();
+                this._conn.Close();
             }
             return rowsAffected;
         }
@@ -55,10 +55,10 @@ namespace VMS.Repository
         public bool IsExecuted(string query)
         {
             Boolean successful = false;
-            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlCommand cmd = new SqlCommand(query, _conn);
             try
             {
-                this.conn.Open();
+                this._conn.Open();
                 cmd.ExecuteNonQuery();
                 successful = true;
             }
@@ -69,14 +69,14 @@ namespace VMS.Repository
             }
             finally
             {
-                this.conn.Close();
+                this._conn.Close();
             }
             return successful;
         }
 
         public List<T> GetDataTableAsList<T>(String query)
         {
-            return lr.ConvertDataTableToList<T>(GetDataTable(query));
+            return _lr.ConvertDataTableToList<T>(GetDataTable(query));
         }
         public DataTable GetDataTable(String query)
         {

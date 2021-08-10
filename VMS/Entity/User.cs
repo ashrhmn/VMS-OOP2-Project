@@ -6,9 +6,9 @@ namespace VMS.Entity
 {
     class User
     {
-        string username;
-        string password;
-        string role;
+        string _username;
+        string _password;
+        string _role;
 
         public User()
         {
@@ -17,13 +17,13 @@ namespace VMS.Entity
 
         public User(string username, string password, string role)
         {
-            this.username = username;
-            this.password = password;
-            this.role = role;
+            this._username = username;
+            this._password = password;
+            this._role = role;
         }
 
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
-        public string Role { get => role; set => role = value; }
+        public string Username { get => _username; set => _username = value; }
+        public string Password { get => _password; set => _password = value; }
+        public string Role { get => _role; set => _role = value; }
     }
 }
