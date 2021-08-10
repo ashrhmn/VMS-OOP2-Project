@@ -84,13 +84,11 @@ namespace VMS
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             btnExit.ForeColor = Color.Blue;
-            //label1.Image = Image.FromFile("\\\\Mac\\Dropbox\\sourcecode\\VisualStudio\\VMS\\VMS\\VMS\\Resources\\outline_power_settings_new_black_24dp.png");
         }
 
         private void label1_MouseLeave(object sender, EventArgs e)
         {
             btnExit.ForeColor = Color.Black;
-            //label1.Image = null;
         }
     }
 }
