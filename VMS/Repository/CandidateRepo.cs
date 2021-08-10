@@ -26,7 +26,7 @@ namespace VMS.Repository
 
         public bool SetUserAsCandidate(string username)
         {
-            return _dbc.IsExecuted(("insert into candidates values('"+username+"',0)"));
+            return _dbc.IsExecuted(("insert into candidates values('"+username+"')"));
         }
 
         public bool RemoveUserFromCandidate(string username)
