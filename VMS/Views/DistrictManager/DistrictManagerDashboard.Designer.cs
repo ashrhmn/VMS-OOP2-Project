@@ -33,19 +33,19 @@ namespace VMS.Views.DistrictManager
             this.buttonRemoveCandidate = new System.Windows.Forms.Button();
             this.buttonAddCandidate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxFatherName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxMotherName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxGender = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxDateOfBirth = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBoxNid = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPublic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,14 +93,14 @@ namespace VMS.Views.DistrictManager
             this.label1.TabIndex = 2;
             this.label1.Text = "Name :";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(482, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 23);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Value";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxName.Location = new System.Drawing.Point(482, 79);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(260, 23);
+            this.textBoxName.TabIndex = 3;
+            this.textBoxName.Text = "Value";
+            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -111,14 +111,14 @@ namespace VMS.Views.DistrictManager
             this.label2.TabIndex = 2;
             this.label2.Text = "Father\'s Name :";
             // 
-            // textBox2
+            // textBoxFatherName
             // 
-            this.textBox2.Location = new System.Drawing.Point(482, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(260, 23);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "Value";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxFatherName.Location = new System.Drawing.Point(482, 108);
+            this.textBoxFatherName.Name = "textBoxFatherName";
+            this.textBoxFatherName.Size = new System.Drawing.Size(260, 23);
+            this.textBoxFatherName.TabIndex = 3;
+            this.textBoxFatherName.Text = "Value";
+            this.textBoxFatherName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -129,14 +129,14 @@ namespace VMS.Views.DistrictManager
             this.label3.TabIndex = 2;
             this.label3.Text = "Mother\'s Name :";
             // 
-            // textBox3
+            // textBoxMotherName
             // 
-            this.textBox3.Location = new System.Drawing.Point(482, 137);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(260, 23);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "Value";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxMotherName.Location = new System.Drawing.Point(482, 137);
+            this.textBoxMotherName.Name = "textBoxMotherName";
+            this.textBoxMotherName.Size = new System.Drawing.Size(260, 23);
+            this.textBoxMotherName.TabIndex = 3;
+            this.textBoxMotherName.Text = "Value";
+            this.textBoxMotherName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -147,14 +147,14 @@ namespace VMS.Views.DistrictManager
             this.label4.TabIndex = 2;
             this.label4.Text = "Gender :";
             // 
-            // textBox4
+            // textBoxGender
             // 
-            this.textBox4.Location = new System.Drawing.Point(482, 166);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(260, 23);
-            this.textBox4.TabIndex = 3;
-            this.textBox4.Text = "Value";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxGender.Location = new System.Drawing.Point(482, 166);
+            this.textBoxGender.Name = "textBoxGender";
+            this.textBoxGender.Size = new System.Drawing.Size(260, 23);
+            this.textBoxGender.TabIndex = 3;
+            this.textBoxGender.Text = "Value";
+            this.textBoxGender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -165,14 +165,14 @@ namespace VMS.Views.DistrictManager
             this.label5.TabIndex = 2;
             this.label5.Text = "Date Of Birth :";
             // 
-            // textBox5
+            // textBoxDateOfBirth
             // 
-            this.textBox5.Location = new System.Drawing.Point(482, 195);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(260, 23);
-            this.textBox5.TabIndex = 3;
-            this.textBox5.Text = "Value";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDateOfBirth.Location = new System.Drawing.Point(482, 195);
+            this.textBoxDateOfBirth.Name = "textBoxDateOfBirth";
+            this.textBoxDateOfBirth.Size = new System.Drawing.Size(260, 23);
+            this.textBoxDateOfBirth.TabIndex = 3;
+            this.textBoxDateOfBirth.Text = "Value";
+            this.textBoxDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -183,14 +183,14 @@ namespace VMS.Views.DistrictManager
             this.label6.TabIndex = 2;
             this.label6.Text = "Address :";
             // 
-            // textBox6
+            // textBoxAddress
             // 
-            this.textBox6.Location = new System.Drawing.Point(482, 224);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(260, 23);
-            this.textBox6.TabIndex = 3;
-            this.textBox6.Text = "Value";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAddress.Location = new System.Drawing.Point(482, 224);
+            this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.Size = new System.Drawing.Size(260, 23);
+            this.textBoxAddress.TabIndex = 3;
+            this.textBoxAddress.Text = "Value";
+            this.textBoxAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -201,33 +201,33 @@ namespace VMS.Views.DistrictManager
             this.label7.TabIndex = 2;
             this.label7.Text = "NID :";
             // 
-            // textBox7
+            // textBoxNid
             // 
-            this.textBox7.Location = new System.Drawing.Point(482, 253);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(260, 23);
-            this.textBox7.TabIndex = 3;
-            this.textBox7.Text = "Value";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxNid.Location = new System.Drawing.Point(482, 253);
+            this.textBoxNid.Name = "textBoxNid";
+            this.textBoxNid.Size = new System.Drawing.Size(260, 23);
+            this.textBoxNid.TabIndex = 3;
+            this.textBoxNid.Text = "Value";
+            this.textBoxNid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DistrictManagerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 385);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBoxNid);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBoxDateOfBirth);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxGender);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxMotherName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxFatherName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAddCandidate);
             this.Controls.Add(this.buttonRemoveCandidate);
@@ -246,18 +246,18 @@ namespace VMS.Views.DistrictManager
         private System.Windows.Forms.Button buttonRemoveCandidate;
         private System.Windows.Forms.Button buttonAddCandidate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxFatherName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxMotherName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxGender;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxDateOfBirth;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBoxNid;
     }
 }

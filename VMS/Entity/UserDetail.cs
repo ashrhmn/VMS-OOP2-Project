@@ -1,23 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace VMS.Entity
 {
     class UserDetail
     {
-        private string UserName { get; set; }
-        private string Name { get; set; }
-        private string FatherName { get; set; }
-        private string MotherName { get; set; }
-        private string Gender { get; set; }
-        private DateTime DateOfBirth { get; set; }
-        private string Address { get; set; }
-        private string NID { get; set; }
+        public string UserName { get; set; }
+        public string Name { get; set; }
+        public string FatherName { get; set; }
+        public string MotherName { get; set; }
+        public string Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public string NID { get; set; }
 
         public UserDetail()
         {
 
+        }
+
+        public UserDetail(string username, string name, string fatherName, string motherName, string gender, DateTime dateOfBirth, string nid, string address)
+        {
+            this.UserName = username;
+            this.Name = name;
+            this.FatherName = fatherName;
+            this.MotherName = motherName;
+            this.Gender = gender;
+            this.DateOfBirth = dateOfBirth;
+            this.Address = address;
+            this.NID = nid;
         }
     }
 }

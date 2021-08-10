@@ -78,6 +78,7 @@ namespace VMS.Repository
         {
             return _lr.ConvertDataTableToList<T>(GetDataTable(query));
         }
+        
         public DataTable GetDataTable(String query)
         {
             DataTable dt = new DataTable();
