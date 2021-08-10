@@ -27,7 +27,7 @@ namespace VMS.Views
                 }
                 else if (role == "General Public")
                 {
-                    ActivatePanel(new GeneralPublic.GeneralPublicDashboard());
+                    ActivatePanel(new GeneralPublic.GeneralPublicDashboard(username));
                 }
                 else if (role == "District Manager")
                 {
