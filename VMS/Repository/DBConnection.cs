@@ -131,16 +131,28 @@ namespace VMS.Repository
 
         public string GetSingleData(string query,string columnName)
         {
-            SqlConnection connection = GetConnection();
-            SqlCommand cmd = new SqlCommand(query, connection);
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlConnection connection = null;
+            SqlDataReader reader = null;
             string columnData = null;
-            if (reader.Read())
+            try
             {
-                columnData = reader[columnName].ToString();
+                connection = GetConnection();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    columnData = reader[columnName].ToString();
+                }
             }
-            connection.Close();
-            reader.Close();
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex, query);
+            }
+            finally
+            {
+                connection?.Close();
+                reader?.Close();
+            }
             return columnData;
         }
 

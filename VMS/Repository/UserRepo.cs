@@ -8,7 +8,7 @@ namespace VMS.Repository
 {
     class UserRepo
     {
-        DbConnection _dbc;
+        readonly DbConnection _dbc;
 
         public UserRepo()
         {
@@ -17,7 +17,7 @@ namespace VMS.Repository
 
         public bool IsAuthenticated(string username, string password)
         {
-            string query = "select * from user_credentials where username='" + username + "' and password ='" + password + "'";
+            /*string query = "select * from user_credentials where username='" + username + "' and password ='" + password + "'";
             SqlConnection connection = _dbc.GetConnection();
             SqlDataAdapter adp = new SqlDataAdapter(query,connection);
             int results = 0;
@@ -41,7 +41,10 @@ namespace VMS.Repository
             else
             {
                 return false;
-            }
+            }*/
+
+            return _dbc.DataExists("select * from user_credentials where username='" + username + "' and password ='" +
+                                   password + "'");
         }
 
         public bool UpdateUser(Entity.User user, string username)
@@ -81,7 +84,7 @@ namespace VMS.Repository
 
         public string GetRole(string username)
         {
-            string role = null;
+            /*string role = null;
             SqlConnection connection = _dbc.GetConnection();
             SqlCommand cmd = new SqlCommand("select role from user_credentials where username='" + username+"'", connection);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -91,7 +94,9 @@ namespace VMS.Repository
             }
             connection.Close();
             reader.Close();
-            return role;
+            return role;*/
+
+            return _dbc.GetSingleData("select role from user_credentials where username='" + username + "'", "role");
         }
 
         public DataTable GetUsersDataTable()

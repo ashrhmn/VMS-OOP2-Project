@@ -39,7 +39,7 @@ namespace VMS.Views
             // 
             this.userInfo.AutoSize = true;
             this.userInfo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.userInfo.Location = new System.Drawing.Point(500, 14);
+            this.userInfo.Location = new System.Drawing.Point(444, 14);
             this.userInfo.Name = "userInfo";
             this.userInfo.Size = new System.Drawing.Size(182, 25);
             this.userInfo.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace VMS.Views
             // 
             this.userRoleInfo.AutoSize = true;
             this.userRoleInfo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.userRoleInfo.Location = new System.Drawing.Point(260, 14);
+            this.userRoleInfo.Location = new System.Drawing.Point(133, 14);
             this.userRoleInfo.Name = "userRoleInfo";
             this.userRoleInfo.Size = new System.Drawing.Size(197, 25);
             this.userRoleInfo.TabIndex = 3;
