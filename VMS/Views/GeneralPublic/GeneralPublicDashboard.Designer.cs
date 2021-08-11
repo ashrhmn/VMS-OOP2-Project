@@ -45,6 +45,10 @@ namespace VMS.Views.GeneralPublic
             this.textBoxDateOfBirth = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxNid = new System.Windows.Forms.TextBox();
+            this.dataGridViewCandidates = new System.Windows.Forms.DataGridView();
+            this.labelVoteInfo = new System.Windows.Forms.Label();
+            this.buttonVote = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -175,11 +179,45 @@ namespace VMS.Views.GeneralPublic
             this.textBoxNid.Size = new System.Drawing.Size(191, 23);
             this.textBoxNid.TabIndex = 1;
             // 
+            // dataGridViewCandidates
+            // 
+            this.dataGridViewCandidates.AllowUserToAddRows = false;
+            this.dataGridViewCandidates.AllowUserToDeleteRows = false;
+            this.dataGridViewCandidates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCandidates.Location = new System.Drawing.Point(63, 74);
+            this.dataGridViewCandidates.Name = "dataGridViewCandidates";
+            this.dataGridViewCandidates.ReadOnly = true;
+            this.dataGridViewCandidates.RowTemplate.Height = 25;
+            this.dataGridViewCandidates.Size = new System.Drawing.Size(185, 288);
+            this.dataGridViewCandidates.TabIndex = 2;
+            // 
+            // labelVoteInfo
+            // 
+            this.labelVoteInfo.AutoSize = true;
+            this.labelVoteInfo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelVoteInfo.Location = new System.Drawing.Point(274, 103);
+            this.labelVoteInfo.Name = "labelVoteInfo";
+            this.labelVoteInfo.Size = new System.Drawing.Size(104, 32);
+            this.labelVoteInfo.TabIndex = 3;
+            this.labelVoteInfo.Text = "VoteInfo";
+            // 
+            // buttonVote
+            // 
+            this.buttonVote.Location = new System.Drawing.Point(173, 380);
+            this.buttonVote.Name = "buttonVote";
+            this.buttonVote.Size = new System.Drawing.Size(75, 23);
+            this.buttonVote.TabIndex = 4;
+            this.buttonVote.Text = "Vote";
+            this.buttonVote.UseVisualStyleBackColor = true;
+            // 
             // GeneralPublicDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 450);
+            this.Controls.Add(this.buttonVote);
+            this.Controls.Add(this.labelVoteInfo);
+            this.Controls.Add(this.dataGridViewCandidates);
             this.Controls.Add(this.textBoxNid);
             this.Controls.Add(this.textBoxDateOfBirth);
             this.Controls.Add(this.textBoxAddress);
@@ -198,6 +236,7 @@ namespace VMS.Views.GeneralPublic
             this.Controls.Add(this.label1);
             this.Name = "GeneralPublicDashboard";
             this.Text = "GeneralPublicDashboard";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +260,8 @@ namespace VMS.Views.GeneralPublic
         private System.Windows.Forms.TextBox textBoxDateOfBirth;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxNid;
+        private System.Windows.Forms.DataGridView dataGridViewCandidates;
+        private System.Windows.Forms.Label labelVoteInfo;
+        private System.Windows.Forms.Button buttonVote;
     }
 }

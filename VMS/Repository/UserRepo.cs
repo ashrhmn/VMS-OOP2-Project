@@ -90,6 +90,7 @@ namespace VMS.Repository
                 role = reader["role"].ToString();
             }
             connection.Close();
+            reader.Close();
             return role;
         }
 

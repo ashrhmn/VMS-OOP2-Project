@@ -32,6 +32,33 @@ namespace VMS.Repository
             this._conn.Close();
         }
 
+        public bool DataExists(string query)
+        {
+            SqlDataAdapter adp = new SqlDataAdapter(query, _conn);
+            int results = 0;
+            try
+            {
+                results = adp.Fill(new System.Data.DataSet());
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex, query);
+                return false;
+            }
+            finally
+            {
+                this._conn.Close();
+            }
+            if (results != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int Execute(string query)
         {
             SqlCommand cmd = new SqlCommand(query, _conn);
@@ -99,6 +126,22 @@ namespace VMS.Repository
             }
 
             return dt;
+        }
+
+
+        public string GetSingleData(string query,string columnName)
+        {
+            SqlConnection connection = GetConnection();
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            string columnData = null;
+            if (reader.Read())
+            {
+                columnData = reader[columnName].ToString();
+            }
+            connection.Close();
+            reader.Close();
+            return columnData;
         }
 
         public void ShowErrorMessage(Exception ex, string query, int lineNo)

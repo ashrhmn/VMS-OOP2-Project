@@ -23,6 +23,10 @@ namespace VMS.Repository
         {
             return _dbc.GetDataTable(("select username, (select case when username in (select username from candidates) then 'Yes' else 'No' end) as isCandidate from user_credentials where role='General Public'"));
         }
+        public DataTable GetCandidateListTable()
+        {
+            return _dbc.GetDataTable(("select username from candidates"));
+        }
 
         public bool SetUserAsCandidate(string username)
         {

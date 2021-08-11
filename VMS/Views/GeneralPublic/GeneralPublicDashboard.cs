@@ -13,11 +13,21 @@ namespace VMS.Views.GeneralPublic
     public partial class GeneralPublicDashboard : Form
     {
         private readonly UserDetailRepo _udr;
+        private CandidateRepo cr;
+        private VoteRepo vr;
         public GeneralPublicDashboard(string username)
         {
             InitializeComponent();
             _udr = new UserDetailRepo();
+            cr = new CandidateRepo();
+            vr = new VoteRepo();
             RefreshData(username);
+            UpdateCandidateListTable();
+        }
+
+        void UpdateCandidateListTable()
+        {
+            dataGridViewCandidates.DataSource = cr.GetCandidateListTable();
         }
 
         void RefreshData(string username)
@@ -34,6 +44,8 @@ namespace VMS.Views.GeneralPublic
                 textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString();
                 textBoxNid.Text = userDetail.NID;
             }
+
+            labelVoteInfo.Text = vr.VotedCandidate(username);
 
         }
     }
