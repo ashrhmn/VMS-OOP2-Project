@@ -25,5 +25,10 @@ namespace VMS.Repository
                 dbc.GetSingleData("select * from votes where voter = '"+username+"'","candidate");
             return candidate;
         }
+
+        public Boolean VoteCandidate(string username, string candidate)
+        {
+            return dbc.IsExecuted("insert into votes values('"+candidate+"','"+username+"')");
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Text;
 
 namespace VMS.Repository
@@ -17,32 +16,6 @@ namespace VMS.Repository
 
         public bool IsAuthenticated(string username, string password)
         {
-            /*string query = "select * from user_credentials where username='" + username + "' and password ='" + password + "'";
-            SqlConnection connection = _dbc.GetConnection();
-            SqlDataAdapter adp = new SqlDataAdapter(query,connection);
-            int results = 0;
-            try
-            {
-                results = adp.Fill(new System.Data.DataSet());
-            }
-            catch (Exception ex)
-            {
-                _dbc.ShowErrorMessage(ex, query, 32);
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            if (results!=0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }*/
-
             return _dbc.DataExists("select * from user_credentials where username='" + username + "' and password ='" +
                                    password + "'");
         }
@@ -76,7 +49,8 @@ namespace VMS.Repository
             {
                 if (!_dbc.IsExecuted("delete from "+tableName+" where username='" + username + "'"))
                 {
-                    System.Windows.Forms.MessageBox.Show("Username may not have been deleted in table " + tableName + "\nHave a look in your Database");
+                    System.Windows.Forms.MessageBox.Show(@"Username may not have been deleted in table " + tableName + @"
+Have a look in your Database");
                 }
             }
             return _dbc.IsExecuted("delete from user_credentials where username='"+username+"'");
@@ -84,18 +58,6 @@ namespace VMS.Repository
 
         public string GetRole(string username)
         {
-            /*string role = null;
-            SqlConnection connection = _dbc.GetConnection();
-            SqlCommand cmd = new SqlCommand("select role from user_credentials where username='" + username+"'", connection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                role = reader["role"].ToString();
-            }
-            connection.Close();
-            reader.Close();
-            return role;*/
-
             return _dbc.GetSingleData("select role from user_credentials where username='" + username + "'", "role");
         }
 

@@ -15,24 +15,36 @@ namespace VMS.Views.GeneralPublic
         private readonly UserDetailRepo _udr;
         private CandidateRepo cr;
         private VoteRepo vr;
+        private string Username;
         public GeneralPublicDashboard(string username)
         {
             InitializeComponent();
+            this.Username = username;
             _udr = new UserDetailRepo();
             cr = new CandidateRepo();
             vr = new VoteRepo();
-            RefreshData(username);
-            UpdateCandidateListTable();
+            RefreshData();
+            UpdateVotingInfo();
         }
 
-        void UpdateCandidateListTable()
+        void UpdateVotingInfo()
         {
             dataGridViewCandidates.DataSource = cr.GetCandidateListTable();
+            bool userHasVoted = vr.HasVoted(Username);
+            buttonVote.Enabled = !userHasVoted;
+            if (userHasVoted)
+            {
+                labelVoteInfo.Text = "You have voted for : \n"+vr.VotedCandidate(Username);
+            }
+            else
+            {
+                labelVoteInfo.Text = "You haven't voted yet";
+            }
         }
 
-        void RefreshData(string username)
+        void RefreshData()
         {
-            UserDetail userDetail = _udr.GetUserDetail(username);
+            UserDetail userDetail = _udr.GetUserDetail(Username);
             if (userDetail != null)
             {
                 textBoxUsername.Text = userDetail.UserName;
@@ -45,7 +57,22 @@ namespace VMS.Views.GeneralPublic
                 textBoxNid.Text = userDetail.NID;
             }
 
-            labelVoteInfo.Text = vr.VotedCandidate(username);
+
+        }
+
+        private void buttonVote_Click(object sender, EventArgs e)
+        {
+            if (vr.VoteCandidate(Username,
+                dataGridViewCandidates.SelectedRows[0].Cells[0].Value.ToString()))
+            {
+                MessageBox.Show("You have voted successfully");
+            }
+            else
+            {
+                MessageBox.Show("Voting Failed, Please contact your District Manager");
+            }
+            UpdateVotingInfo();
+            //MessageBox.Show(dataGridViewCandidates.SelectedRows[0].Cells[0].Value.ToString());
 
         }
     }
