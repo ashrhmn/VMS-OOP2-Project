@@ -1,21 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using VMS.Entity;
+using VMS.Repository;
 
 namespace VMS.Views.Admin
 {
     public partial class AdminDashboard : Form
     {
-        private System.Data.DataTable _usersDataTable;
-        Repository.UserRepo _ur;
-        Repository.LocalRepo _lr;
+        private DataTable _usersDataTable;
+        readonly UserRepo _ur;
+        readonly LocalRepo _lr;
         public AdminDashboard()
         {
             InitializeComponent();
-            _ur = new Repository.UserRepo();
-            _lr = new Repository.LocalRepo();
+            _ur = new UserRepo();
+            _lr = new LocalRepo();
             comboBoxOperationMode.SelectedIndex = 0;
             comboBoxRole.SelectedIndex = 0;
             UpdateDataTable();
@@ -70,37 +71,27 @@ namespace VMS.Views.Admin
                 if (comboBoxOperationMode.SelectedIndex == 0)
                 {
                     //Update
-                    if (_ur.UpdateUser(
-                            new Entity.User(
-                                textBoxUsername.Text,
-                                textBoxPassword.Text,
-                                comboBoxRole.Text
-                                ),
-                            usersGridView.SelectedRows[0].Cells[0].Value.ToString() //username from selected row
-                            ))
-                    {
-                        MessageBox.Show(@"Updated successfullly");
-                    }
-                    else
-                    {
-                        MessageBox.Show(@"Update Failed");
-                    }
+                    MessageBox.Show(_ur.UpdateUser(
+                        new User(
+                            textBoxUsername.Text,
+                            textBoxPassword.Text,
+                            comboBoxRole.Text
+                        ),
+                        usersGridView.SelectedRows[0].Cells[0].Value.ToString() //username from selected row
+                    )
+                        ? @"Updated successfully"
+                        : @"Update Failed");
                 }
                 else
                 {
                     //Add
-                    if (_ur.AddUser(new Entity.User(
-                                textBoxUsername.Text,
-                                textBoxPassword.Text,
-                                comboBoxRole.Text
-                        )))
-                    {
-                        MessageBox.Show(@"User added successfullly");
-                    }
-                    else
-                    {
-                        MessageBox.Show(@"User add Failed");
-                    }
+                    MessageBox.Show(_ur.AddUser(new User(
+                        textBoxUsername.Text,
+                        textBoxPassword.Text,
+                        comboBoxRole.Text
+                    ))
+                        ? @"User added successfully"
+                        : @"User add Failed");
                 }
 
                 EmptyTextBoxes();
@@ -115,7 +106,7 @@ namespace VMS.Views.Admin
             if (comboBoxOperationMode.SelectedIndex == 0)
             {
                 //Update Mode
-                buttonUpdate.Text = "Update";
+                buttonUpdate.Text = @"Update";
                 buttonDelete.Enabled = true;
             }
             else
@@ -135,20 +126,14 @@ namespace VMS.Views.Admin
             }
             else
             {
-                var confirmResult = MessageBox.Show("Are you sure to delete this item ?",
-                                     "Confirm Delete!",
+                var confirmResult = MessageBox.Show(@"Are you sure to delete this item ?",
+                                     @"Confirm Delete!",
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    if (_ur.DeleteUser(textBoxUsername.Text))
-                    {
-                        MessageBox.Show(@"User deleted successfully");
-                    }
-                    else
-                    {
-                        MessageBox.Show(@"Delete Error");
-                    }
-
+                    MessageBox.Show(_ur.DeleteUser(textBoxUsername.Text)
+                        ? @"User deleted successfully"
+                        : @"Delete Error");
                 }
                 EmptyTextBoxes();
                 UpdateDataTable();
@@ -159,7 +144,7 @@ namespace VMS.Views.Admin
         {
             if (comboBoxOperationMode.SelectedIndex == 1)
             {
-                foreach (Entity.User user in _lr.ConvertDataTableToList<Entity.User>(_usersDataTable).ToArray())
+                foreach (User user in _lr.ConvertDataTableToList<User>(_usersDataTable).ToArray())
                 {
                     if (user.Username == textBoxUsername.Text)
                     {
@@ -171,14 +156,7 @@ namespace VMS.Views.Admin
                         break;
                     }
 
-                    if (textBoxUsername.Text == "")
-                    {
-                        userNameErrorLabel.Text = "";
-                    }
-                    else
-                    {
-                        userNameErrorLabel.Text = @"✅";
-                    }
+                    userNameErrorLabel.Text = textBoxUsername.Text == "" ? "" : @"✅";
                     userNameErrorLabel.ForeColor = Color.LimeGreen;
                     textBoxUsername.ForeColor = Color.Black;
                     buttonUpdate.Enabled = true;
