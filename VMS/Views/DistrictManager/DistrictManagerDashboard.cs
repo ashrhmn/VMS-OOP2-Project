@@ -93,5 +93,10 @@ namespace VMS.Views.DistrictManager
             }
             RefreshTable();
         }
+
+        private void buttonViewResult_Click(object sender, EventArgs e)
+        {
+            new VoteResult().Show();
+        }
     }
 }

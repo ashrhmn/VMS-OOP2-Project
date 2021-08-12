@@ -29,12 +29,37 @@ namespace VMS.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dataGridViewCandidates = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridViewCandidates
+            // 
+            this.dataGridViewCandidates.AllowUserToAddRows = false;
+            this.dataGridViewCandidates.AllowUserToDeleteRows = false;
+            this.dataGridViewCandidates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCandidates.Location = new System.Drawing.Point(42, 58);
+            this.dataGridViewCandidates.Name = "dataGridViewCandidates";
+            this.dataGridViewCandidates.ReadOnly = true;
+            this.dataGridViewCandidates.RowTemplate.Height = 25;
+            this.dataGridViewCandidates.Size = new System.Drawing.Size(239, 293);
+            this.dataGridViewCandidates.TabIndex = 0;
+            // 
+            // VoteResult
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridViewCandidates);
+            this.Name = "VoteResult";
             this.Text = "VoteResult";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridViewCandidates;
     }
 }

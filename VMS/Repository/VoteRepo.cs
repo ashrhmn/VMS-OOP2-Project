@@ -30,5 +30,15 @@ namespace VMS.Repository
         {
             return dbc.IsExecuted("insert into votes values('"+candidate+"','"+username+"')");
         }
+
+        public int VoteCount(string candidate)
+        {
+            return dbc.DataCount("select voter from votes where candidate='"+candidate+"'");
+        }
+
+        public DataTable CandidateListDataTable()
+        {
+            return dbc.GetDataTable("select username as candidate from candidates");
+        }
     }
 }

@@ -46,6 +46,7 @@ namespace VMS.Views.DistrictManager
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxNid = new System.Windows.Forms.TextBox();
+            this.buttonViewResult = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPublic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -210,11 +211,22 @@ namespace VMS.Views.DistrictManager
             this.textBoxNid.Text = "Value";
             this.textBoxNid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // buttonViewResult
+            // 
+            this.buttonViewResult.Location = new System.Drawing.Point(688, 349);
+            this.buttonViewResult.Name = "buttonViewResult";
+            this.buttonViewResult.Size = new System.Drawing.Size(75, 23);
+            this.buttonViewResult.TabIndex = 4;
+            this.buttonViewResult.Text = "View Result";
+            this.buttonViewResult.UseVisualStyleBackColor = true;
+            this.buttonViewResult.Click += new System.EventHandler(this.buttonViewResult_Click);
+            // 
             // DistrictManagerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 385);
+            this.Controls.Add(this.buttonViewResult);
             this.Controls.Add(this.textBoxNid);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxAddress);
@@ -259,5 +271,6 @@ namespace VMS.Views.DistrictManager
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxNid;
+        private System.Windows.Forms.Button buttonViewResult;
     }
 }

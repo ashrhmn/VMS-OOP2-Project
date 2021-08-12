@@ -59,7 +59,7 @@ namespace VMS.Repository
             }
         }
 
-        public int DatCount(string query)
+        public int DataCount(string query)
         {
             SqlDataAdapter adp = new SqlDataAdapter(query, _conn);
             int results = 0;
