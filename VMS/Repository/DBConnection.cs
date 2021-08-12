@@ -59,6 +59,26 @@ namespace VMS.Repository
             }
         }
 
+        public int DatCount(string query)
+        {
+            SqlDataAdapter adp = new SqlDataAdapter(query, _conn);
+            int results = 0;
+            try
+            {
+                results = adp.Fill(new System.Data.DataSet());
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex, query);
+            }
+            finally
+            {
+                this._conn.Close();
+            }
+
+            return results;
+        }
+
         public int Execute(string query)
         {
             SqlCommand cmd = new SqlCommand(query, _conn);
