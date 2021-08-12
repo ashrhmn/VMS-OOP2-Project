@@ -190,6 +190,7 @@ namespace VMS.Views.GeneralPublic
             this.dataGridViewCandidates.MultiSelect = false;
             this.dataGridViewCandidates.Name = "dataGridViewCandidates";
             this.dataGridViewCandidates.ReadOnly = true;
+            this.dataGridViewCandidates.RowHeadersVisible = false;
             this.dataGridViewCandidates.RowTemplate.Height = 25;
             this.dataGridViewCandidates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCandidates.Size = new System.Drawing.Size(185, 288);
