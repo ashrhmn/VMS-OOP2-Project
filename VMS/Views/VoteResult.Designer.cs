@@ -37,11 +37,16 @@ namespace VMS.Views
             // 
             this.dataGridViewCandidates.AllowUserToAddRows = false;
             this.dataGridViewCandidates.AllowUserToDeleteRows = false;
+            this.dataGridViewCandidates.AllowUserToResizeRows = false;
+            this.dataGridViewCandidates.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCandidates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCandidates.Location = new System.Drawing.Point(42, 58);
+            this.dataGridViewCandidates.MultiSelect = false;
             this.dataGridViewCandidates.Name = "dataGridViewCandidates";
             this.dataGridViewCandidates.ReadOnly = true;
+            this.dataGridViewCandidates.RowHeadersVisible = false;
             this.dataGridViewCandidates.RowTemplate.Height = 25;
+            this.dataGridViewCandidates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCandidates.Size = new System.Drawing.Size(239, 293);
             this.dataGridViewCandidates.TabIndex = 0;
             // 

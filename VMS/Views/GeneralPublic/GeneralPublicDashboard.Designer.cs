@@ -183,8 +183,11 @@ namespace VMS.Views.GeneralPublic
             // 
             this.dataGridViewCandidates.AllowUserToAddRows = false;
             this.dataGridViewCandidates.AllowUserToDeleteRows = false;
+            this.dataGridViewCandidates.AllowUserToResizeRows = false;
+            this.dataGridViewCandidates.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCandidates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCandidates.Location = new System.Drawing.Point(63, 26);
+            this.dataGridViewCandidates.MultiSelect = false;
             this.dataGridViewCandidates.Name = "dataGridViewCandidates";
             this.dataGridViewCandidates.ReadOnly = true;
             this.dataGridViewCandidates.RowTemplate.Height = 25;

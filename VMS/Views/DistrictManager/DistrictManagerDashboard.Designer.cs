@@ -54,8 +54,11 @@ namespace VMS.Views.DistrictManager
             // 
             this.dataGridViewPublic.AllowUserToAddRows = false;
             this.dataGridViewPublic.AllowUserToDeleteRows = false;
+            this.dataGridViewPublic.AllowUserToResizeRows = false;
+            this.dataGridViewPublic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPublic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPublic.Location = new System.Drawing.Point(22, 40);
+            this.dataGridViewPublic.MultiSelect = false;
             this.dataGridViewPublic.Name = "dataGridViewPublic";
             this.dataGridViewPublic.ReadOnly = true;
             this.dataGridViewPublic.RowHeadersVisible = false;

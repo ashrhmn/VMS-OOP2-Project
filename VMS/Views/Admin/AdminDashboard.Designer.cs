@@ -49,8 +49,11 @@ namespace VMS.Views.Admin
             // 
             this.usersGridView.AllowUserToAddRows = false;
             this.usersGridView.AllowUserToDeleteRows = false;
+            this.usersGridView.AllowUserToResizeRows = false;
+            this.usersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersGridView.Location = new System.Drawing.Point(32, 41);
+            this.usersGridView.MultiSelect = false;
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.ReadOnly = true;
             this.usersGridView.RowHeadersVisible = false;
