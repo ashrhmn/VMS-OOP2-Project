@@ -21,17 +21,17 @@ There are 3 types of users here, They are -
 **2. Feature List** :
 * In this project the **Admin** has the following features:
   * [x] Login
-  * [ ] Add new **Admin**
-  * [ ] Assign a **GeneralPublic** as **District Manager**
-  * View data for all district
-  * View Total Result
-  * Manage total list of **General Public** with NID and their details
+  * [x] Add new **Admin**
+  * [x] Assign a **GeneralPublic** as **District Manager**
+  * [ ] View data for all district
+  * [ ] View Total Result
+  * [ ] Manage total list of **General Public** with NID and their details
 * In this project **District Manager** has the following features:
-  * Login
-  * Assign a **General Public** as Candidate for Election
-  * View Data for assigned district
-  * View result fo assigned district
+  * [x] Login
+  * [x] Assign a **General Public** as Candidate for Election
+  * [x] View Data for assigned district
+  * [ ] View result fo assigned district
 * In this project the **General Public** has the following features:
-  * Login
-  * Create Account (with NID must be included in the **NID Database** that **Admin** manages)
-  * Vote any of the Candidates
+  * [x] Login
+  * [ ] Create Account (with NID must be included in the **NID Database** that **Admin** manages)
+  * [x] Vote any of the Candidates
