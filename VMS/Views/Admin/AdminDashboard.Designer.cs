@@ -60,7 +60,7 @@ namespace VMS.Views.Admin
             this.usersGridView.RowHeadersVisible = false;
             this.usersGridView.RowTemplate.Height = 25;
             this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersGridView.Size = new System.Drawing.Size(376, 272);
+            this.usersGridView.Size = new System.Drawing.Size(407, 284);
             this.usersGridView.TabIndex = 0;
             this.usersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridView_CellClick);
             // 
