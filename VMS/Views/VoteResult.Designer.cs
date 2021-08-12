@@ -63,7 +63,7 @@ namespace VMS.Views
             this.dataGridViewCandidates.RowHeadersVisible = false;
             this.dataGridViewCandidates.RowTemplate.Height = 25;
             this.dataGridViewCandidates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCandidates.Size = new System.Drawing.Size(239, 293);
+            this.dataGridViewCandidates.Size = new System.Drawing.Size(269, 293);
             this.dataGridViewCandidates.TabIndex = 0;
             this.dataGridViewCandidates.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCandidates_CellClick);
             // 

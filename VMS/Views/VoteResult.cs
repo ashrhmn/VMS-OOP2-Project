@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 using VMS.Entity;
 using VMS.Repository;
@@ -12,15 +7,21 @@ namespace VMS.Views
 {
     public partial class VoteResult : Form
     {
-        private VoteRepo vr;
-        private UserDetailRepo _udr;
+        private readonly VoteRepo _vr;
+        private readonly UserDetailRepo _udr;
         public VoteResult()
         {
             InitializeComponent();
-            vr = new VoteRepo();
+            _vr = new VoteRepo();
             _udr = new UserDetailRepo();
-            dataGridViewCandidates.DataSource = vr.CandidateResultDataTable();
-            dataGridViewCandidates.Sort(dataGridViewCandidates.Columns[1],ListSortDirection.Descending);
+            UpdateCandidateTable();
+        }
+
+        void UpdateCandidateTable()
+        {
+
+            dataGridViewCandidates.DataSource = _vr.CandidateResultDataTable();
+            dataGridViewCandidates.Sort(dataGridViewCandidates.Columns[1], ListSortDirection.Descending);
         }
 
         private void dataGridViewCandidates_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -38,7 +39,7 @@ namespace VMS.Views
                 textBoxMotherName.Text = userDetail.MotherName;
                 textBoxGender.Text = userDetail.Gender;
                 textBoxAddress.Text = userDetail.Address;
-                textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString();
+                textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString("dd MMM yyyy");
                 textBoxNid.Text = userDetail.NID;
             }
             else
