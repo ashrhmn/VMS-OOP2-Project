@@ -16,7 +16,7 @@ namespace VMS.Repository
 
         public UserDetail GetUserDetail(string username)
         {
-            List<UserDetail> list =
+            var list =
                 dbc.GetDataTableAsList<UserDetail>("select * from user_details where username='" + username + "'");
             if (list.Count != 1)
             {
@@ -24,5 +24,11 @@ namespace VMS.Repository
             }
             return list[0];
         }
+
+        public bool UpdateUserDetail(UserDetail userDetail)
+        {
+            return dbc.IsExecuted("update user_details set name='" + userDetail.Name + "',gender='" + userDetail.Gender + "',address='" + userDetail.Address + "',fatherName='" + userDetail.FatherName + "',motherName='" + userDetail.MotherName + "',dateOfBirth='" + userDetail.DateOfBirth + "',nid='" + userDetail.NID + "' where username='"+userDetail.UserName+"'");
+        }
+
     }
 }

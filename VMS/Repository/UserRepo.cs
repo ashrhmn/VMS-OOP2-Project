@@ -49,8 +49,7 @@ namespace VMS.Repository
             {
                 if (!_dbc.IsExecuted("delete from "+tableName+" where username='" + username + "'"))
                 {
-                    System.Windows.Forms.MessageBox.Show(@"Username may not have been deleted in table " + tableName + @"
-Have a look in your Database");
+                    System.Windows.Forms.MessageBox.Show(@"Username may not have been deleted in table " + tableName + @"Have a look in your Database");
                 }
             }
             return _dbc.IsExecuted("delete from user_credentials where username='"+username+"'");

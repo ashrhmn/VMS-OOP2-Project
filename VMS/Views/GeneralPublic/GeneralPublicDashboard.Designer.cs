@@ -42,12 +42,13 @@ namespace VMS.Views.GeneralPublic
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxDateOfBirth = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxNid = new System.Windows.Forms.TextBox();
             this.dataGridViewCandidates = new System.Windows.Forms.DataGridView();
             this.labelVoteInfo = new System.Windows.Forms.Label();
             this.buttonVote = new System.Windows.Forms.Button();
+            this.dateOfBirthPicker = new System.Windows.Forms.DateTimePicker();
+            this.buttonUpdateInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +65,8 @@ namespace VMS.Views.GeneralPublic
             // 
             this.textBoxUsername.Location = new System.Drawing.Point(611, 26);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(191, 23);
+            this.textBoxUsername.ReadOnly = true;
+            this.textBoxUsername.Size = new System.Drawing.Size(222, 23);
             this.textBoxUsername.TabIndex = 1;
             // 
             // label2
@@ -80,7 +82,7 @@ namespace VMS.Views.GeneralPublic
             // 
             this.textBoxName.Location = new System.Drawing.Point(611, 55);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(191, 23);
+            this.textBoxName.Size = new System.Drawing.Size(222, 23);
             this.textBoxName.TabIndex = 1;
             // 
             // label3
@@ -96,7 +98,7 @@ namespace VMS.Views.GeneralPublic
             // 
             this.textBoxFathername.Location = new System.Drawing.Point(611, 88);
             this.textBoxFathername.Name = "textBoxFathername";
-            this.textBoxFathername.Size = new System.Drawing.Size(191, 23);
+            this.textBoxFathername.Size = new System.Drawing.Size(222, 23);
             this.textBoxFathername.TabIndex = 1;
             // 
             // label4
@@ -112,7 +114,7 @@ namespace VMS.Views.GeneralPublic
             // 
             this.textBoxMotherName.Location = new System.Drawing.Point(611, 123);
             this.textBoxMotherName.Name = "textBoxMotherName";
-            this.textBoxMotherName.Size = new System.Drawing.Size(191, 23);
+            this.textBoxMotherName.Size = new System.Drawing.Size(222, 23);
             this.textBoxMotherName.TabIndex = 1;
             // 
             // label5
@@ -128,13 +130,13 @@ namespace VMS.Views.GeneralPublic
             // 
             this.textBoxGender.Location = new System.Drawing.Point(611, 159);
             this.textBoxGender.Name = "textBoxGender";
-            this.textBoxGender.Size = new System.Drawing.Size(191, 23);
+            this.textBoxGender.Size = new System.Drawing.Size(222, 23);
             this.textBoxGender.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(545, 230);
+            this.label6.Location = new System.Drawing.Point(545, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 15);
             this.label6.TabIndex = 0;
@@ -142,31 +144,24 @@ namespace VMS.Views.GeneralPublic
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Location = new System.Drawing.Point(611, 227);
+            this.textBoxAddress.Location = new System.Drawing.Point(611, 233);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(191, 23);
+            this.textBoxAddress.Size = new System.Drawing.Size(222, 23);
             this.textBoxAddress.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(521, 200);
+            this.label7.Location = new System.Drawing.Point(521, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 15);
             this.label7.TabIndex = 0;
             this.label7.Text = "Date of Birth :";
             // 
-            // textBoxDateOfBirth
-            // 
-            this.textBoxDateOfBirth.Location = new System.Drawing.Point(611, 197);
-            this.textBoxDateOfBirth.Name = "textBoxDateOfBirth";
-            this.textBoxDateOfBirth.Size = new System.Drawing.Size(191, 23);
-            this.textBoxDateOfBirth.TabIndex = 1;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(567, 266);
+            this.label8.Location = new System.Drawing.Point(567, 272);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 15);
             this.label8.TabIndex = 0;
@@ -174,9 +169,9 @@ namespace VMS.Views.GeneralPublic
             // 
             // textBoxNid
             // 
-            this.textBoxNid.Location = new System.Drawing.Point(611, 263);
+            this.textBoxNid.Location = new System.Drawing.Point(611, 269);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(191, 23);
+            this.textBoxNid.Size = new System.Drawing.Size(222, 23);
             this.textBoxNid.TabIndex = 1;
             // 
             // dataGridViewCandidates
@@ -216,16 +211,35 @@ namespace VMS.Views.GeneralPublic
             this.buttonVote.UseVisualStyleBackColor = true;
             this.buttonVote.Click += new System.EventHandler(this.buttonVote_Click);
             // 
+            // dateOfBirthPicker
+            // 
+            this.dateOfBirthPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateOfBirthPicker.Location = new System.Drawing.Point(611, 198);
+            this.dateOfBirthPicker.Name = "dateOfBirthPicker";
+            this.dateOfBirthPicker.Size = new System.Drawing.Size(222, 23);
+            this.dateOfBirthPicker.TabIndex = 5;
+            // 
+            // buttonUpdateInfo
+            // 
+            this.buttonUpdateInfo.Location = new System.Drawing.Point(733, 336);
+            this.buttonUpdateInfo.Name = "buttonUpdateInfo";
+            this.buttonUpdateInfo.Size = new System.Drawing.Size(94, 23);
+            this.buttonUpdateInfo.TabIndex = 6;
+            this.buttonUpdateInfo.Text = "Update Info";
+            this.buttonUpdateInfo.UseVisualStyleBackColor = true;
+            this.buttonUpdateInfo.Click += new System.EventHandler(this.buttonUpdateInfo_Click);
+            // 
             // GeneralPublicDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 378);
+            this.Controls.Add(this.buttonUpdateInfo);
+            this.Controls.Add(this.dateOfBirthPicker);
             this.Controls.Add(this.buttonVote);
             this.Controls.Add(this.labelVoteInfo);
             this.Controls.Add(this.dataGridViewCandidates);
             this.Controls.Add(this.textBoxNid);
-            this.Controls.Add(this.textBoxDateOfBirth);
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.textBoxGender);
             this.Controls.Add(this.textBoxMotherName);
@@ -263,11 +277,12 @@ namespace VMS.Views.GeneralPublic
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxDateOfBirth;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxNid;
         private System.Windows.Forms.DataGridView dataGridViewCandidates;
         private System.Windows.Forms.Label labelVoteInfo;
         private System.Windows.Forms.Button buttonVote;
+        private System.Windows.Forms.DateTimePicker dateOfBirthPicker;
+        private System.Windows.Forms.Button buttonUpdateInfo;
     }
 }
