@@ -77,7 +77,7 @@ namespace VMS.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(803, 454);
             this.Controls.Add(this.userRoleInfo);
             this.Controls.Add(this.dashboardViewPanel);
             this.Controls.Add(this.buttonLogout);

@@ -40,5 +40,9 @@ namespace VMS.Repository
         {
             return dbc.GetDataTable("select username as candidate from candidates");
         }
+        public DataTable CandidateResultDataTable()
+        {
+            return dbc.GetDataTable("select username as candidate, (select count(voter) from votes where candidate=username) as voteCount from candidates");
+        }
     }
 }

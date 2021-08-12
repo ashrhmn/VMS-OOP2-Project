@@ -56,8 +56,17 @@ namespace VMS.Views.GeneralPublic
                 textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString();
                 textBoxNid.Text = userDetail.NID;
             }
-
-
+            else
+            {
+                textBoxUsername.Text = "";
+                textBoxName.Text = "";
+                textBoxFathername.Text = "";
+                textBoxMotherName.Text = "";
+                textBoxGender.Text = "";
+                textBoxAddress.Text = "";
+                textBoxDateOfBirth.Text = "";
+                textBoxNid.Text = "";
+            }
         }
 
         private void buttonVote_Click(object sender, EventArgs e)

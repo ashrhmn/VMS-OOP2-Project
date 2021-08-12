@@ -42,6 +42,7 @@ namespace VMS.Views.Admin
             this.comboBoxOperationMode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.userNameErrorLabel = new System.Windows.Forms.Label();
+            this.buttonViewResult = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,11 +184,22 @@ namespace VMS.Views.Admin
             this.userNameErrorLabel.TabIndex = 13;
             this.userNameErrorLabel.Text = "ErrMsg";
             // 
+            // buttonViewResult
+            // 
+            this.buttonViewResult.Location = new System.Drawing.Point(675, 331);
+            this.buttonViewResult.Name = "buttonViewResult";
+            this.buttonViewResult.Size = new System.Drawing.Size(75, 23);
+            this.buttonViewResult.TabIndex = 14;
+            this.buttonViewResult.Text = "View Result";
+            this.buttonViewResult.UseVisualStyleBackColor = true;
+            this.buttonViewResult.Click += new System.EventHandler(this.buttonViewResult_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.buttonViewResult);
             this.Controls.Add(this.userNameErrorLabel);
             this.Controls.Add(this.comboBoxOperationMode);
             this.Controls.Add(this.buttonUpdate);
@@ -225,5 +237,6 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.ComboBox comboBoxOperationMode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label userNameErrorLabel;
+        private System.Windows.Forms.Button buttonViewResult;
     }
 }
