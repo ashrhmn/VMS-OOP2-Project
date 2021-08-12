@@ -20,7 +20,7 @@ namespace VMS.Views
             vr = new VoteRepo();
             _udr = new UserDetailRepo();
             dataGridViewCandidates.DataSource = vr.CandidateResultDataTable();
-            dataGridViewCandidates.Sort(dataGridViewCandidates.Columns["voteCount"],ListSortDirection.Descending);
+            dataGridViewCandidates.Sort(dataGridViewCandidates.Columns[1],ListSortDirection.Descending);
         }
 
         private void dataGridViewCandidates_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -124,6 +124,7 @@ namespace VMS.Views.Admin
                 buttonUpdate.Text = @"Add";
                 buttonDelete.Enabled = false;
             }
+            CheckUsernameAvailability();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -154,15 +155,10 @@ namespace VMS.Views.Admin
             }
         }
 
-        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        void CheckUsernameAvailability()
         {
             if (comboBoxOperationMode.SelectedIndex == 1)
             {
-                if (textBoxUsername.Text == "" || textBoxUsername.Text == usersGridView.SelectedRows[0].Cells[0].Value.ToString())
-                {
-                    UpdateDataTable();
-                }
-
                 foreach (Entity.User user in _lr.ConvertDataTableToList<Entity.User>(_usersDataTable).ToArray())
                 {
                     if (user.Username == textBoxUsername.Text)
@@ -188,6 +184,11 @@ namespace VMS.Views.Admin
                     buttonUpdate.Enabled = true;
                 }
             }
+        }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+            CheckUsernameAvailability();
         }
 
         private void buttonViewResult_Click(object sender, EventArgs e)
