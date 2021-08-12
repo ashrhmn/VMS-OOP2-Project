@@ -20,9 +20,9 @@ There are 3 types of users here, They are -
 
 **2. Feature List** :
 * In this project the **Admin** has the following features:
-  * Login
-  * Add new **Admin**
-  * Assign a **GeneralPublic** as **District Manager**
+  * [x]Login
+  * [ ]Add new **Admin**
+  * [ ]Assign a **GeneralPublic** as **District Manager**
   * View data for all district
   * View Total Result
   * Manage total list of **General Public** with NID and their details
