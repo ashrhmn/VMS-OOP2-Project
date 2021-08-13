@@ -23,15 +23,15 @@ There are 3 types of users here, They are -
   * [x] Login
   * [x] Add new **Admin**
   * [x] Assign a **GeneralPublic** as **District Manager**
-  * [ ] View data for all district
-  * [ ] View Total Result
-  * [ ] Manage total list of **General Public** with NID and their details
+  * [x] View data ~~for all district~~
+  * [x] View Total Result
+  * [x] Manage total list of **General Public** with ~~NID and~~ their details
 * In this project **District Manager** has the following features:
   * [x] Login
   * [x] Assign a **General Public** as Candidate for Election
-  * [x] View Data for assigned district
-  * [ ] View result fo assigned district
+  * [x] View Data ~~for assigned district~~
+  * [x] View result ~~for assigned district~~
 * In this project the **General Public** has the following features:
   * [x] Login
-  * [ ] Create Account (with NID must be included in the **NID Database** that **Admin** manages)
+  * [ ] Create Account ~~(with NID must be included in the **NID Database** that **Admin** manages)~~
   * [x] Vote any of the Candidates
