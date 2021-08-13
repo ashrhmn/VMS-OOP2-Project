@@ -14,7 +14,7 @@ namespace VMS.Views.DistrictManager
         public DistrictManagerDashboard(string username)
         {
             InitializeComponent();
-            this.Username = username;
+            Username = username;
             _udr = new UserDetailRepo();
             _cr = new CandidateRepo();
 
@@ -100,7 +100,7 @@ namespace VMS.Views.DistrictManager
 
         private void buttonGoToPersonalProfile_Click(object sender, EventArgs e)
         {
-            new GeneralPublicDashboard(this.Username).Show();
+            new GeneralPublicDashboard(Username).Show();
         }
     }
 }

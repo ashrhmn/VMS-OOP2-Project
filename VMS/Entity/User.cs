@@ -13,9 +13,9 @@
 
         public User(string username, string password, string role)
         {
-            this._username = username;
-            this._password = password;
-            this._role = role;
+            _username = username;
+            _password = password;
+            _role = role;
         }
 
         public string Username { get => _username; set => _username = value; }

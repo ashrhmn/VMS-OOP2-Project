@@ -14,7 +14,7 @@ namespace VMS.Views.GeneralPublic
         public GeneralPublicDashboard(string username)
         {
             InitializeComponent();
-            this._username = username;
+            _username = username;
             _udr = new UserDetailRepo();
             _cr = new CandidateRepo();
             _vr = new VoteRepo();

@@ -11,7 +11,7 @@ namespace VMS.Views
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();
-            this._handleLogout = handleLogout;
+            _handleLogout = handleLogout;
             _ur = new Repository.UserRepo();
             string role = _ur.GetRole(username);
             if (role!=null)
@@ -49,12 +49,12 @@ namespace VMS.Views
             {
                 _activeForm.Close();
             }
-            this._activeForm = formToActivate;
+            _activeForm = formToActivate;
             formToActivate.TopLevel = false;
             formToActivate.FormBorderStyle = FormBorderStyle.None;
             formToActivate.Dock = DockStyle.Fill;
-            this.dashboardViewPanel.Controls.Add(formToActivate);
-            this.dashboardViewPanel.Tag = formToActivate;
+            dashboardViewPanel.Controls.Add(formToActivate);
+            dashboardViewPanel.Tag = formToActivate;
             formToActivate.BringToFront();
             formToActivate.Show();
         }

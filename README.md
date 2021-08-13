@@ -33,5 +33,5 @@ There are 3 types of users here, They are -
   * [x] View result ~~for assigned district~~
 * In this project the **General Public** has the following features:
   * [x] Login
-  * [ ] Create Account ~~(with NID must be included in the **NID Database** that **Admin** manages)~~
+  * [x] Create Account ~~(with NID must be included in the **NID Database** that **Admin** manages)~~
   * [x] Vote any of the Candidates

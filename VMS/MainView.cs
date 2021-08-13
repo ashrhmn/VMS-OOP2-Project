@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
+using VMS.Entity;
+using VMS.Repository;
 
 namespace VMS
 {
     public partial class MainView : Form
     {
+        private UserRepo ur;
         public new Form ActiveForm;
         public MainView()
         {
             InitializeComponent();
+            ur = new UserRepo();
 
-            ActivatePanel(new Views.LoginView(HandleLogin));
+            ActivatePanel(new Views.LoginView(HandleLogin, HandleSignUp));
         }
 
 
@@ -22,41 +25,34 @@ namespace VMS
             {
                 ActiveForm.Close();
             }
-            this.ActiveForm = formToActivate;
+            ActiveForm = formToActivate;
             formToActivate.TopLevel = false;
             formToActivate.FormBorderStyle = FormBorderStyle.None;
             formToActivate.Dock = DockStyle.Fill;
-            this.panelMainView.Controls.Add(formToActivate);
-            this.panelMainView.Tag = formToActivate;
+            panelMainView.Controls.Add(formToActivate);
+            panelMainView.Tag = formToActivate;
             formToActivate.BringToFront();
             formToActivate.Show();
         }
 
         void HandleSignUp(string username, string password)
         {
-            SqlConnection conn = new SqlConnection("Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019");
-            //activatePanel(new Views.Dashboard());
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("insert into users (username, password) values('" + username + "','" + password + "')", conn);
-            int rowsAffected = 0;
-            try
+            if (ur.AddUser(new User(username, password, "General Public")))
             {
-                rowsAffected = cmd.ExecuteNonQuery();
+                MessageBox.Show(@"Sign Up Successful, Add your Details on next page");
+                ActivatePanel(new Views.Dashboard(username, HandleLogout));
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(@"Sign Up Failed");
             }
-            MessageBox.Show(rowsAffected + " rows affected");
-            conn.Close();
         }
 
         void HandleLogin(string username, string password)
         {
-            Repository.UserRepo ur = new Repository.UserRepo();
             if (ur.IsAuthenticated(username, password))
             {
-                MessageBox.Show("Logged in as "+username);
+                MessageBox.Show(@"Logged in as "+username);
                 ActivatePanel(new Views.Dashboard(username,HandleLogout));
             }
             else
@@ -67,7 +63,7 @@ namespace VMS
 
         void HandleLogout()
         {
-            ActivatePanel(new Views.LoginView(HandleLogin));
+            ActivatePanel(new Views.LoginView(HandleLogin,HandleSignUp));
         }
 
         private void label1_Click(object sender, EventArgs e)

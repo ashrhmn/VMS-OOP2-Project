@@ -12,8 +12,8 @@
         }
         public Candidate(string username, bool isCandidate)
         {
-            this.Username = username;
-            this.IsCandidate = isCandidate;
+            Username = username;
+            IsCandidate = isCandidate;
         }
 
 
