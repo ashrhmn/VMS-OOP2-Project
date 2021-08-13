@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using VMS.Entity;
 using VMS.Repository;
+using VMS.Views.GeneralPublic;
 
 namespace VMS.Views.DistrictManager
 {
@@ -9,9 +10,11 @@ namespace VMS.Views.DistrictManager
     {
         private readonly UserDetailRepo _udr;
         private readonly CandidateRepo _cr;
-        public DistrictManagerDashboard()
+        private string Username;
+        public DistrictManagerDashboard(string username)
         {
             InitializeComponent();
+            this.Username = username;
             _udr = new UserDetailRepo();
             _cr = new CandidateRepo();
 
@@ -93,6 +96,11 @@ namespace VMS.Views.DistrictManager
         private void buttonViewResult_Click(object sender, EventArgs e)
         {
             new VoteResult().Show();
+        }
+
+        private void buttonGoToPersonalProfile_Click(object sender, EventArgs e)
+        {
+            new GeneralPublicDashboard(this.Username).Show();
         }
     }
 }

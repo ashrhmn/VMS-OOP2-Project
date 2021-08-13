@@ -21,7 +21,7 @@ namespace VMS.Repository
 
         public bool UpdateUser(Entity.User user, string username)
         {
-            Boolean updateSuccesful = _dbc.IsExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
+            Boolean updateSuccessful = _dbc.IsExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
             if (user.Username != username)
             {
                 //Update username throughout entire database
@@ -33,7 +33,7 @@ namespace VMS.Repository
                     }
                 }
             }
-            return updateSuccesful;
+            return updateSuccessful;
         }
 
         public bool AddUser(Entity.User user)

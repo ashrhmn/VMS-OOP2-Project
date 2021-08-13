@@ -26,7 +26,7 @@ namespace VMS.Views
                 }
                 else if (role == "District Manager")
                 {
-                    ActivatePanel(new DistrictManager.DistrictManagerDashboard());
+                    ActivatePanel(new DistrictManager.DistrictManagerDashboard(username));
                 }
                 else
                 {
