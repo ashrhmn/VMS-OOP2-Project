@@ -40,7 +40,7 @@ namespace VMS.Views.DistrictManager
                 textBoxGender.Text = userDetail.Gender;
                 textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString("d");
                 textBoxAddress.Text = userDetail.Address;
-                textBoxNid.Text = userDetail.NID;
+                textBoxNid.Text = userDetail.Nid;
             }
             else
             {

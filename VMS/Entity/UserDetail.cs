@@ -11,7 +11,7 @@ namespace VMS.Entity
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
-        public string NID { get; set; }
+        public string Nid { get; set; }
 
         public UserDetail()
         {
@@ -27,7 +27,7 @@ namespace VMS.Entity
             Gender = gender;
             DateOfBirth = dateOfBirth;
             Address = address;
-            NID = nid;
+            Nid = nid;
         }
     }
 }

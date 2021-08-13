@@ -25,11 +25,12 @@ namespace VMS.Repository
             if (user.Username != username)
             {
                 //Update username throughout entire database
-                foreach (string tableName in new String[] { "user_details", "candidates" })
+                foreach (string tableName in new[] { "user_details", "candidates" })
                 {
                     if (!_dbc.IsExecuted("update " + tableName + " set username='" + user.Username + "' where username='" + username + "'"))
                     {
-                        System.Windows.Forms.MessageBox.Show("Username may not have been updated in table " + tableName + "\nHave a look in your Database");
+                        System.Windows.Forms.MessageBox.Show(@"Username may not have been updated in table " + tableName + @"
+                        Have a look in your Database");
                     }
                 }
             }
@@ -44,7 +45,7 @@ namespace VMS.Repository
         public bool DeleteUser(string username)
         {
             //Delete username throughout entire database
-            foreach (string tableName in new String[] { "user_details", "candidates" })
+            foreach (string tableName in new[] { "user_details", "candidates" })
             {
                 if (!_dbc.IsExecuted("delete from "+tableName+" where username='" + username + "'"))
                 {

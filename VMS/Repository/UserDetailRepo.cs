@@ -24,12 +24,12 @@ namespace VMS.Repository
 
         public bool UpdateUserDetail(UserDetail userDetail)
         {
-            return _dbc.IsExecuted("update user_details set name='" + userDetail.Name + "',gender='" + userDetail.Gender + "',address='" + userDetail.Address + "',fatherName='" + userDetail.FatherName + "',motherName='" + userDetail.MotherName + "',dateOfBirth='" + userDetail.DateOfBirth + "',nid='" + userDetail.NID + "' where username='"+userDetail.UserName+"'");
+            return _dbc.IsExecuted("update user_details set name='" + userDetail.Name + "',gender='" + userDetail.Gender + "',address='" + userDetail.Address + "',fatherName='" + userDetail.FatherName + "',motherName='" + userDetail.MotherName + "',dateOfBirth='" + userDetail.DateOfBirth + "',nid='" + userDetail.Nid + "' where username='"+userDetail.UserName+"'");
         }
 
         public bool NewUserDetail(UserDetail userDetail)
         {
-            return _dbc.IsExecuted("insert into user_details (username, name, gender, address, fatherName, MotherName, dateOfBirth, nid) values('" + userDetail.UserName + "','" + userDetail.Name + "','" + userDetail.Gender + "','" + userDetail.Address + "','" + userDetail.FatherName + "','" + userDetail.MotherName + "','" + userDetail.DateOfBirth + "','" + userDetail.NID + "')");
+            return _dbc.IsExecuted("insert into user_details (username, name, gender, address, fatherName, MotherName, dateOfBirth, nid) values('" + userDetail.UserName + "','" + userDetail.Name + "','" + userDetail.Gender + "','" + userDetail.Address + "','" + userDetail.FatherName + "','" + userDetail.MotherName + "','" + userDetail.DateOfBirth + "','" + userDetail.Nid + "')");
         }
 
         public bool SaveUserDetail(UserDetail userDetail)

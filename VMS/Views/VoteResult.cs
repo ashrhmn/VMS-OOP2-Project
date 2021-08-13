@@ -40,7 +40,7 @@ namespace VMS.Views
                 textBoxGender.Text = userDetail.Gender;
                 textBoxAddress.Text = userDetail.Address;
                 textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString("dd MMM yyyy");
-                textBoxNid.Text = userDetail.NID;
+                textBoxNid.Text = userDetail.Nid;
             }
             else
             {

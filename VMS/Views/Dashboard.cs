@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Windows.Forms;
+using VMS.Repository;
 
 namespace VMS.Views
 {
     public partial class Dashboard : Form
     {
         Form _activeForm;
-        readonly Repository.UserRepo _ur;
         readonly Action _handleLogout;
         public Dashboard(string username, Action handleLogout)
         {
             InitializeComponent();
             _handleLogout = handleLogout;
-            _ur = new Repository.UserRepo();
-            string role = _ur.GetRole(username);
+            //var ur = new Repository.UserRepo();
+            string role = new UserRepo().GetRole(username);
             if (role!=null)
             {
                 if (role == "Admin")
@@ -34,8 +34,8 @@ namespace VMS.Views
                     handleLogout();
                 }
             }
-            userInfo.Text = "Welcome, "+username;
-            userRoleInfo.Text = "User Role : "+role;
+            userInfo.Text = @"Welcome, "+username;
+            userRoleInfo.Text = @"User Role : "+role;
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)

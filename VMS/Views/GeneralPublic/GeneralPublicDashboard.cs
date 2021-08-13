@@ -48,7 +48,7 @@ namespace VMS.Views.GeneralPublic
                 textBoxMotherName.Text = userDetail.MotherName;
                 textBoxGender.Text = userDetail.Gender;
                 textBoxAddress.Text = userDetail.Address;
-                textBoxNid.Text = userDetail.NID;
+                textBoxNid.Text = userDetail.Nid;
                 dateOfBirthPicker.Value = Convert.ToDateTime(userDetail.DateOfBirth.ToString("yyyy/MM/dd"));
             }
             else

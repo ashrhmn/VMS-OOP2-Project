@@ -35,14 +35,14 @@ namespace VMS.Repository
         public bool DataExists(string query)
         {
             SqlDataAdapter adp = new SqlDataAdapter(query, _conn);
-            int results = 0;
+            int results;
             try
             {
                 results = adp.Fill(new DataSet());
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex, query);
+                _lr.ShowErrorMessage(ex, query);
                 return false;
             }
             finally
@@ -69,7 +69,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex, query);
+                _lr.ShowErrorMessage(ex, query);
             }
             finally
             {
@@ -90,7 +90,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex, query);
+                _lr.ShowErrorMessage(ex, query);
             }
             finally
             {
@@ -101,7 +101,7 @@ namespace VMS.Repository
 
         public bool IsExecuted(string query)
         {
-            Boolean successful = false;
+            Boolean successful;
             SqlCommand cmd = new SqlCommand(query, _conn);
             try
             {
@@ -111,7 +111,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex, query);
+                _lr.ShowErrorMessage(ex, query);
                 successful = false;
             }
             finally
@@ -138,7 +138,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex, query);
+                _lr.ShowErrorMessage(ex, query);
             }
             finally
             {
@@ -166,7 +166,7 @@ namespace VMS.Repository
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex, query);
+                _lr.ShowErrorMessage(ex, query);
             }
             finally
             {
@@ -174,16 +174,6 @@ namespace VMS.Repository
                 reader?.Close();
             }
             return columnData;
-        }
-
-        public void ShowErrorMessage(Exception ex, string query, int lineNo)
-        {
-            System.Windows.Forms.MessageBox.Show("Query : " + query + "\nLine no : " + lineNo + "\n\n" + ex.ToString(), "Error in SQL");
-        }
-
-        public void ShowErrorMessage(Exception ex, string query)
-        {
-            System.Windows.Forms.MessageBox.Show("Query : " + query + "\n\n" + ex.ToString(),"Error in SQL");
         }
     }
 }
