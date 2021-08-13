@@ -198,7 +198,7 @@ namespace VMS.Views.Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 395);
+            this.ClientSize = new System.Drawing.Size(813, 395);
             this.Controls.Add(this.buttonViewResult);
             this.Controls.Add(this.userNameErrorLabel);
             this.Controls.Add(this.comboBoxOperationMode);
