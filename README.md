@@ -35,3 +35,5 @@ There are 3 types of users here, They are -
   * [x] Login
   * [x] Create Account ~~(with NID must be included in the **NID Database** that **Admin** manages)~~
   * [x] Vote any of the Candidates
+
+*Had to remove NID assignment and District wise Voting*
