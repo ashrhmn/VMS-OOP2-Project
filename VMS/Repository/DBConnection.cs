@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection;
-using System.Text;
 
 namespace VMS.Repository
 {
     class DbConnection
     {
         readonly SqlConnection _conn;
-        string _connectionString = "Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019";
+        //string _connectionString = "Data Source=1.10.11.107;Initial Catalog=VMS;Persist Security Info=True;User ID=sa;Password=mssql-2019";
+        string _connectionString = "Data Source = localhost; Initial Catalog = VMS; Persist Security Info=True;User ID = sa; Password=mssql-2019";
+        
         LocalRepo _lr;
         public DbConnection()
         {
