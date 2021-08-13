@@ -7,13 +7,11 @@ namespace VMS.Views.DistrictManager
 {
     public partial class DistrictManagerDashboard : Form
     {
-        private readonly UserRepo _ur;
         private readonly UserDetailRepo _udr;
         private readonly CandidateRepo _cr;
         public DistrictManagerDashboard()
         {
             InitializeComponent();
-            _ur = new UserRepo();
             _udr = new UserDetailRepo();
             _cr = new CandidateRepo();
 
@@ -26,18 +24,31 @@ namespace VMS.Views.DistrictManager
         void RefreshTable()
         {
             dataGridViewPublic.DataSource = _cr.GetCandidateDataTable();
-            dataGridViewPublic.Columns[1].HeaderText = "Candidate";
+            dataGridViewPublic.Columns[1].HeaderText = @"Candidate";
         }
 
         void UpdateFields(UserDetail userDetail)
         {
-            textBoxName.Text = userDetail.Name;
-            textBoxFatherName.Text = userDetail.FatherName;
-            textBoxMotherName.Text = userDetail.MotherName;
-            textBoxGender.Text = userDetail.Gender;
-            textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString();
-            textBoxAddress.Text = userDetail.Address;
-            textBoxNid.Text = userDetail.NID;
+            if (userDetail != null)
+            {
+                textBoxName.Text = userDetail.Name;
+                textBoxFatherName.Text = userDetail.FatherName;
+                textBoxMotherName.Text = userDetail.MotherName;
+                textBoxGender.Text = userDetail.Gender;
+                textBoxDateOfBirth.Text = userDetail.DateOfBirth.ToString("d");
+                textBoxAddress.Text = userDetail.Address;
+                textBoxNid.Text = userDetail.NID;
+            }
+            else
+            {
+                textBoxName.Text = "";
+                textBoxFatherName.Text = "";
+                textBoxMotherName.Text = "";
+                textBoxGender.Text = "";
+                textBoxDateOfBirth.Text = "";
+                textBoxAddress.Text = "";
+                textBoxNid.Text = "";
+            }
 
         }
 
@@ -54,25 +65,15 @@ namespace VMS.Views.DistrictManager
                 buttonAddCandidate.Enabled = true;
             }
 
-            UserDetail userDetail = _udr.GetUserDetail((dataGridViewPublic.SelectedRows[0].Cells[0].Value.ToString()));
-
-            if (userDetail != null)
-            {
-                UpdateFields(userDetail);
-            }
+            UpdateFields(_udr.GetUserDetail((dataGridViewPublic.SelectedRows[0].Cells[0].Value.ToString())));
 
         }
 
         private void buttonAddCandidate_Click(object sender, EventArgs e)
         {
-            if (_cr.SetUserAsCandidate(dataGridViewPublic.SelectedRows[0].Cells[0].Value.ToString()))
-            {
-                MessageBox.Show(@"User successfully set as Election Candidate");
-            }
-            else
-            {
-                MessageBox.Show(@"Operation Failed");
-            }
+            MessageBox.Show(_cr.SetUserAsCandidate(dataGridViewPublic.SelectedRows[0].Cells[0].Value.ToString())
+                ? @"User successfully set as Election Candidate"
+                : @"Operation Failed");
             RefreshTable();
         }
 
