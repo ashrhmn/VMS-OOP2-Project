@@ -39,10 +39,10 @@ namespace VMS.Views.GeneralPublic
 
         private void RefreshData()
         {
+            textBoxUsername.Text = _username;
             UserDetail userDetail = _udr.GetUserDetail(_username);
             if (userDetail != null)
             {
-                textBoxUsername.Text = userDetail.UserName;
                 textBoxName.Text = userDetail.Name;
                 textBoxFathername.Text = userDetail.FatherName;
                 textBoxMotherName.Text = userDetail.MotherName;
@@ -53,7 +53,6 @@ namespace VMS.Views.GeneralPublic
             }
             else
             {
-                textBoxUsername.Text = "";
                 textBoxName.Text = "";
                 textBoxFathername.Text = "";
                 textBoxMotherName.Text = "";
@@ -75,7 +74,7 @@ namespace VMS.Views.GeneralPublic
 
         private void buttonUpdateInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_udr.UpdateUserDetail(new UserDetail(textBoxUsername.Text,
+            MessageBox.Show(_udr.SaveUserDetail(new UserDetail(textBoxUsername.Text,
                 textBoxName.Text,
                 textBoxFathername.Text,
                 textBoxMotherName.Text,
