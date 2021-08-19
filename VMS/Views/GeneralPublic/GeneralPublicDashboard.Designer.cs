@@ -373,7 +373,7 @@ namespace VMS.Views.GeneralPublic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 378);
+            this.ClientSize = new System.Drawing.Size(854, 377);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox2);

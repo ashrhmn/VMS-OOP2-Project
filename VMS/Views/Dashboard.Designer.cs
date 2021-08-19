@@ -60,7 +60,7 @@ namespace VMS.Views
             // 
             this.dashboardViewPanel.Location = new System.Drawing.Point(12, 46);
             this.dashboardViewPanel.Name = "dashboardViewPanel";
-            this.dashboardViewPanel.Size = new System.Drawing.Size(859, 392);
+            this.dashboardViewPanel.Size = new System.Drawing.Size(859, 440);
             this.dashboardViewPanel.TabIndex = 2;
             // 
             // userRoleInfo
@@ -77,7 +77,7 @@ namespace VMS.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 454);
+            this.ClientSize = new System.Drawing.Size(883, 498);
             this.Controls.Add(this.userRoleInfo);
             this.Controls.Add(this.dashboardViewPanel);
             this.Controls.Add(this.buttonLogout);
