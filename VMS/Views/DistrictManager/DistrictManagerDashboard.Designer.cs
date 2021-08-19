@@ -59,7 +59,7 @@ namespace VMS.Views.DistrictManager
             // 
             this.panelView.Location = new System.Drawing.Point(1, 1);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(838, 392);
+            this.panelView.Size = new System.Drawing.Size(837, 392);
             this.panelView.TabIndex = 6;
             // 
             // buttonManageCandidate

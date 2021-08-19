@@ -18,6 +18,7 @@ namespace VMS.Views.DistrictManager
         {
             InitializeComponent();
             _username = username;
+            ActivatePanel(new GeneralPublicDashboard(_username));
             //_udr = new UserDetailRepo();
             //_cr = new CandidateRepo();
 

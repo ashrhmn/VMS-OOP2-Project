@@ -19,7 +19,6 @@ namespace VMS.Views
 
         void UpdateCandidateTable()
         {
-
             dataGridViewCandidates.DataSource = _vr.CandidateResultDataTable();
             dataGridViewCandidates.Sort(dataGridViewCandidates.Columns[1], ListSortDirection.Descending);
         }
