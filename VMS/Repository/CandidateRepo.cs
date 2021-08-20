@@ -12,10 +12,6 @@ namespace VMS.Repository
             _dbc = new DbConnection();
         }
 
-        public List<Entity.Candidate> GetCandidateList()
-        {
-            return _dbc.GetDataTableAsList<Entity.Candidate>("select * from candidates");
-        }
 
         public DataTable GetCandidateDataTable()
         {
