@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace VMS.Repository
 {
@@ -41,7 +42,7 @@ namespace VMS.Repository
         {
             System.Windows.Forms.MessageBox.Show(@"Query : " + query + @"
 
-" + ex, @"Error in SQL");
+" + ex, @"Error in SQL",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace VMS.Views.DistrictManager
             // 
             // buttonViewResult
             // 
-            this.buttonViewResult.Location = new System.Drawing.Point(637, 399);
+            this.buttonViewResult.Location = new System.Drawing.Point(439, 399);
             this.buttonViewResult.Name = "buttonViewResult";
             this.buttonViewResult.Size = new System.Drawing.Size(75, 23);
             this.buttonViewResult.TabIndex = 4;
@@ -47,7 +47,7 @@ namespace VMS.Views.DistrictManager
             // 
             // buttonGoToPersonalProfile
             // 
-            this.buttonGoToPersonalProfile.Location = new System.Drawing.Point(718, 399);
+            this.buttonGoToPersonalProfile.Location = new System.Drawing.Point(547, 399);
             this.buttonGoToPersonalProfile.Name = "buttonGoToPersonalProfile";
             this.buttonGoToPersonalProfile.Size = new System.Drawing.Size(97, 23);
             this.buttonGoToPersonalProfile.TabIndex = 5;
@@ -57,14 +57,14 @@ namespace VMS.Views.DistrictManager
             // 
             // panelView
             // 
-            this.panelView.Location = new System.Drawing.Point(1, 1);
+            this.panelView.Location = new System.Drawing.Point(117, 0);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(837, 392);
+            this.panelView.Size = new System.Drawing.Size(871, 373);
             this.panelView.TabIndex = 6;
             // 
             // buttonManageCandidate
             // 
-            this.buttonManageCandidate.Location = new System.Drawing.Point(507, 400);
+            this.buttonManageCandidate.Location = new System.Drawing.Point(285, 399);
             this.buttonManageCandidate.Name = "buttonManageCandidate";
             this.buttonManageCandidate.Size = new System.Drawing.Size(121, 23);
             this.buttonManageCandidate.TabIndex = 7;
@@ -76,11 +76,11 @@ namespace VMS.Views.DistrictManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 434);
+            this.ClientSize = new System.Drawing.Size(1000, 434);
             this.Controls.Add(this.buttonManageCandidate);
-            this.Controls.Add(this.panelView);
             this.Controls.Add(this.buttonGoToPersonalProfile);
             this.Controls.Add(this.buttonViewResult);
+            this.Controls.Add(this.panelView);
             this.Name = "DistrictManagerDashboard";
             this.Text = "DistrictManagerDashboard";
             this.ResumeLayout(false);

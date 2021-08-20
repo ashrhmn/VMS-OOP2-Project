@@ -43,7 +43,7 @@ namespace VMS
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(848, 28);
+            this.btnExit.Location = new System.Drawing.Point(953, 26);
             this.btnExit.Name = "btnExit";
             this.btnExit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnExit.Size = new System.Drawing.Size(51, 32);
@@ -61,7 +61,7 @@ namespace VMS
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(923, 559);
+            this.panelMain.Size = new System.Drawing.Size(1031, 559);
             this.panelMain.TabIndex = 2;
             // 
             // panelMainView
@@ -70,7 +70,7 @@ namespace VMS
             this.panelMainView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainView.Location = new System.Drawing.Point(0, 85);
             this.panelMainView.Name = "panelMainView";
-            this.panelMainView.Size = new System.Drawing.Size(923, 474);
+            this.panelMainView.Size = new System.Drawing.Size(1031, 474);
             this.panelMainView.TabIndex = 3;
             // 
             // panelTopView
@@ -80,14 +80,14 @@ namespace VMS
             this.panelTopView.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopView.Location = new System.Drawing.Point(0, 0);
             this.panelTopView.Name = "panelTopView";
-            this.panelTopView.Size = new System.Drawing.Size(923, 85);
+            this.panelTopView.Size = new System.Drawing.Size(1031, 85);
             this.panelTopView.TabIndex = 2;
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 559);
+            this.ClientSize = new System.Drawing.Size(1031, 559);
             this.ControlBox = false;
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

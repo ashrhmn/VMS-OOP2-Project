@@ -171,7 +171,7 @@ namespace VMS.Views.Admin
 
         private void buttonViewResult_Click(object sender, EventArgs e)
         {
-            new VoteResult().Show();
+            new VoteResult().ShowDialog(this);
         }
     }
 }
