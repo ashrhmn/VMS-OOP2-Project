@@ -38,7 +38,7 @@ namespace VMS.Views
             // password
             // 
             this.password.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.password.Location = new System.Drawing.Point(310, 170);
+            this.password.Location = new System.Drawing.Point(378, 207);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(264, 44);
             this.password.TabIndex = 0;
@@ -46,14 +46,14 @@ namespace VMS.Views
             // username
             // 
             this.username.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.username.Location = new System.Drawing.Point(310, 105);
+            this.username.Location = new System.Drawing.Point(378, 142);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(264, 44);
             this.username.TabIndex = 0;
             // 
             // buttonSignUp
             // 
-            this.buttonSignUp.Location = new System.Drawing.Point(344, 250);
+            this.buttonSignUp.Location = new System.Drawing.Point(412, 287);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(75, 23);
             this.buttonSignUp.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace VMS.Views
             // 
             // buttonSignIn
             // 
-            this.buttonSignIn.Location = new System.Drawing.Point(464, 250);
+            this.buttonSignIn.Location = new System.Drawing.Point(532, 287);
             this.buttonSignIn.Name = "buttonSignIn";
             this.buttonSignIn.Size = new System.Drawing.Size(75, 23);
             this.buttonSignIn.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace VMS.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 369);
+            this.ClientSize = new System.Drawing.Size(954, 436);
             this.Controls.Add(this.buttonSignIn);
             this.Controls.Add(this.buttonSignUp);
             this.Controls.Add(this.username);

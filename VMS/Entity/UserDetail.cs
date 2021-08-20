@@ -15,7 +15,7 @@ namespace VMS.Entity
 
         public UserDetail()
         {
-
+            //Do not remove the constructor even if it has 0 references, needed for LocalRepo.cs
         }
 
         public UserDetail(string username, string name, string fatherName, string motherName, string gender, DateTime dateOfBirth, string nid, string address)

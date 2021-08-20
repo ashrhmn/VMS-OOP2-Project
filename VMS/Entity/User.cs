@@ -1,25 +1,23 @@
 ﻿namespace VMS.Entity
 {
-    class User
+    internal class User
     {
-        string _username;
-        string _password;
-        string _role;
-
-        public User()
-        {
-
-        }
+        //public User()
+        //{
+            
+        //}
 
         public User(string username, string password, string role)
         {
-            _username = username;
-            _password = password;
-            _role = role;
+            Username = username;
+            Password = password;
+            Role = role;
         }
 
-        public string Username { get => _username; set => _username = value; }
-        public string Password { get => _password; set => _password = value; }
-        public string Role { get => _role; set => _role = value; }
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
+        public string Role { get; set; }
     }
 }
