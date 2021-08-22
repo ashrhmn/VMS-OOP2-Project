@@ -42,6 +42,7 @@ namespace VMS.Views.Admin
             this.comboBoxOperationMode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.userNameErrorLabel = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +53,14 @@ namespace VMS.Views.Admin
             this.usersGridView.AllowUserToResizeRows = false;
             this.usersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersGridView.Location = new System.Drawing.Point(32, 41);
+            this.usersGridView.Location = new System.Drawing.Point(32, 67);
             this.usersGridView.MultiSelect = false;
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.ReadOnly = true;
             this.usersGridView.RowHeadersVisible = false;
             this.usersGridView.RowTemplate.Height = 25;
             this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersGridView.Size = new System.Drawing.Size(407, 284);
+            this.usersGridView.Size = new System.Drawing.Size(407, 258);
             this.usersGridView.TabIndex = 0;
             this.usersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridView_CellClick);
             // 
@@ -183,11 +184,22 @@ namespace VMS.Views.Admin
             this.userNameErrorLabel.TabIndex = 13;
             this.userNameErrorLabel.Text = "ErrMsg";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(144, 24);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(76, 21);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "All Users";
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 395);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.userNameErrorLabel);
             this.Controls.Add(this.comboBoxOperationMode);
             this.Controls.Add(this.buttonUpdate);
@@ -225,5 +237,6 @@ namespace VMS.Views.Admin
         private System.Windows.Forms.ComboBox comboBoxOperationMode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label userNameErrorLabel;
+        private System.Windows.Forms.Label label16;
     }
 }
