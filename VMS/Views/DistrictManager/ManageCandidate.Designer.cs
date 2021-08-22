@@ -29,6 +29,8 @@ namespace VMS.Views.DistrictManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelView = new System.Windows.Forms.Panel();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,9 +79,10 @@ namespace VMS.Views.DistrictManager
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(506, 97);
+            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxName.Location = new System.Drawing.Point(527, 97);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(260, 23);
+            this.textBoxName.Size = new System.Drawing.Size(260, 27);
             this.textBoxName.TabIndex = 3;
             this.textBoxName.Text = "Value";
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -87,26 +90,29 @@ namespace VMS.Views.DistrictManager
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(455, 100);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Name :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(411, 129);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 15);
+            this.label2.Size = new System.Drawing.Size(109, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Father\'s Name :";
             // 
             // buttonRemoveCandidate
             // 
+            this.buttonRemoveCandidate.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRemoveCandidate.Location = new System.Drawing.Point(28, 348);
             this.buttonRemoveCandidate.Name = "buttonRemoveCandidate";
-            this.buttonRemoveCandidate.Size = new System.Drawing.Size(119, 23);
+            this.buttonRemoveCandidate.Size = new System.Drawing.Size(149, 34);
             this.buttonRemoveCandidate.TabIndex = 1;
             this.buttonRemoveCandidate.Text = "Remove Candidate";
             this.buttonRemoveCandidate.UseVisualStyleBackColor = true;
@@ -114,9 +120,10 @@ namespace VMS.Views.DistrictManager
             // 
             // buttonAddCandidate
             // 
+            this.buttonAddCandidate.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddCandidate.Location = new System.Drawing.Point(222, 348);
             this.buttonAddCandidate.Name = "buttonAddCandidate";
-            this.buttonAddCandidate.Size = new System.Drawing.Size(91, 23);
+            this.buttonAddCandidate.Size = new System.Drawing.Size(112, 34);
             this.buttonAddCandidate.TabIndex = 1;
             this.buttonAddCandidate.Text = "Set Candidate";
             this.buttonAddCandidate.UseVisualStyleBackColor = true;
@@ -124,18 +131,20 @@ namespace VMS.Views.DistrictManager
             // 
             // textBoxNid
             // 
-            this.textBoxNid.Location = new System.Drawing.Point(506, 271);
+            this.textBoxNid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxNid.Location = new System.Drawing.Point(527, 271);
             this.textBoxNid.Name = "textBoxNid";
-            this.textBoxNid.Size = new System.Drawing.Size(260, 23);
+            this.textBoxNid.Size = new System.Drawing.Size(260, 27);
             this.textBoxNid.TabIndex = 3;
             this.textBoxNid.Text = "Value";
             this.textBoxNid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxFatherName
             // 
-            this.textBoxFatherName.Location = new System.Drawing.Point(506, 126);
+            this.textBoxFatherName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxFatherName.Location = new System.Drawing.Point(527, 126);
             this.textBoxFatherName.Name = "textBoxFatherName";
-            this.textBoxFatherName.Size = new System.Drawing.Size(260, 23);
+            this.textBoxFatherName.Size = new System.Drawing.Size(260, 27);
             this.textBoxFatherName.TabIndex = 3;
             this.textBoxFatherName.Text = "Value";
             this.textBoxFatherName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -146,7 +155,23 @@ namespace VMS.Views.DistrictManager
             this.dataGridViewPublic.AllowUserToDeleteRows = false;
             this.dataGridViewPublic.AllowUserToResizeRows = false;
             this.dataGridViewPublic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPublic.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPublic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPublic.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPublic.Location = new System.Drawing.Point(28, 23);
             this.dataGridViewPublic.MultiSelect = false;
             this.dataGridViewPublic.Name = "dataGridViewPublic";
@@ -154,42 +179,46 @@ namespace VMS.Views.DistrictManager
             this.dataGridViewPublic.RowHeadersVisible = false;
             this.dataGridViewPublic.RowTemplate.Height = 25;
             this.dataGridViewPublic.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPublic.Size = new System.Drawing.Size(285, 308);
+            this.dataGridViewPublic.Size = new System.Drawing.Size(328, 308);
             this.dataGridViewPublic.TabIndex = 0;
             this.dataGridViewPublic.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPublic_CellClick);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(467, 274);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(478, 274);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 15);
+            this.label7.Size = new System.Drawing.Size(42, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "NID :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(405, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 15);
+            this.label3.Size = new System.Drawing.Size(117, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mother\'s Name :";
             // 
             // textBoxAddress
             // 
-            this.textBoxAddress.Location = new System.Drawing.Point(506, 242);
+            this.textBoxAddress.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxAddress.Location = new System.Drawing.Point(527, 242);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(260, 23);
+            this.textBoxAddress.Size = new System.Drawing.Size(260, 27);
             this.textBoxAddress.TabIndex = 3;
             this.textBoxAddress.Text = "Value";
             this.textBoxAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxMotherName
             // 
-            this.textBoxMotherName.Location = new System.Drawing.Point(506, 155);
+            this.textBoxMotherName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxMotherName.Location = new System.Drawing.Point(527, 155);
             this.textBoxMotherName.Name = "textBoxMotherName";
-            this.textBoxMotherName.Size = new System.Drawing.Size(260, 23);
+            this.textBoxMotherName.Size = new System.Drawing.Size(260, 27);
             this.textBoxMotherName.TabIndex = 3;
             this.textBoxMotherName.Text = "Value";
             this.textBoxMotherName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -197,35 +226,39 @@ namespace VMS.Views.DistrictManager
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(445, 245);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(453, 245);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.Size = new System.Drawing.Size(69, 20);
             this.label6.TabIndex = 2;
             this.label6.Text = "Address :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(449, 187);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(455, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.Size = new System.Drawing.Size(64, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Gender :";
             // 
             // textBoxDateOfBirth
             // 
-            this.textBoxDateOfBirth.Location = new System.Drawing.Point(506, 213);
+            this.textBoxDateOfBirth.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxDateOfBirth.Location = new System.Drawing.Point(527, 213);
             this.textBoxDateOfBirth.Name = "textBoxDateOfBirth";
-            this.textBoxDateOfBirth.Size = new System.Drawing.Size(260, 23);
+            this.textBoxDateOfBirth.Size = new System.Drawing.Size(260, 27);
             this.textBoxDateOfBirth.TabIndex = 3;
             this.textBoxDateOfBirth.Text = "Value";
             this.textBoxDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxGender
             // 
-            this.textBoxGender.Location = new System.Drawing.Point(506, 184);
+            this.textBoxGender.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxGender.Location = new System.Drawing.Point(527, 184);
             this.textBoxGender.Name = "textBoxGender";
-            this.textBoxGender.Size = new System.Drawing.Size(260, 23);
+            this.textBoxGender.Size = new System.Drawing.Size(260, 27);
             this.textBoxGender.TabIndex = 3;
             this.textBoxGender.Text = "Value";
             this.textBoxGender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -233,9 +266,10 @@ namespace VMS.Views.DistrictManager
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(419, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
+            this.label5.Size = new System.Drawing.Size(103, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "Date Of Birth :";
             // 
