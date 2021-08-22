@@ -46,7 +46,6 @@ namespace VMS.Views.GeneralPublic
                 textBoxName.Text = userDetail.Name;
                 textBoxFathername.Text = userDetail.FatherName;
                 textBoxMotherName.Text = userDetail.MotherName;
-                //textBoxGender.Text = userDetail.Gender;
                 comboBoxGender.SelectedIndex = comboBoxGender.FindStringExact(userDetail.Gender);
                 textBoxAddress.Text = userDetail.Address;
                 textBoxNid.Text = userDetail.Nid;
@@ -57,7 +56,6 @@ namespace VMS.Views.GeneralPublic
                 textBoxName.Text = "";
                 textBoxFathername.Text = "";
                 textBoxMotherName.Text = "";
-                //textBoxGender.Text = "";
                 comboBoxGender.Text = "";
                 textBoxAddress.Text = "";
                 dateOfBirthPicker.Value = DateTime.Now;
@@ -87,6 +85,37 @@ namespace VMS.Views.GeneralPublic
                 ? "User Details Updated Successfully"
                 : "User Detail Update Failed");
             RefreshData();
+            UpdateCandidateDetails();
+        }
+
+        void UpdateCandidateDetails()
+        {
+            UserDetail userDetail = _udr.GetUserDetail(dataGridViewCandidates.SelectedRows[0].Cells[0].Value.ToString());
+            if (userDetail != null)
+            {
+                textBoxCandidateName.Text = userDetail.Name;
+                textBoxCandidateFathername.Text = userDetail.FatherName;
+                textBoxCandidateMothername.Text = userDetail.MotherName;
+                textBoxCandidateGender.Text = userDetail.Gender;
+                textBoxCandidateAddress.Text = userDetail.Address;
+                textBoxCandidateNid.Text = userDetail.Nid;
+                textBoxCandidateDateOfBirth.Text = userDetail.DateOfBirth.ToString("yyyy/MM/dd");
+            }
+            else
+            {
+                textBoxCandidateName.Text = "";
+                textBoxCandidateFathername.Text = "";
+                textBoxCandidateMothername.Text = "";
+                textBoxCandidateGender.Text = "";
+                textBoxCandidateAddress.Text = "";
+                textBoxCandidateDateOfBirth.Text = "";
+                textBoxCandidateNid.Text = "";
+            }
+        }
+
+        private void dataGridViewCandidates_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateCandidateDetails();
         }
     }
 }

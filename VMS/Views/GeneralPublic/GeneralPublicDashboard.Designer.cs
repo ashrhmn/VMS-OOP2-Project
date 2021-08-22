@@ -48,19 +48,19 @@ namespace VMS.Views.GeneralPublic
             this.buttonVote = new System.Windows.Forms.Button();
             this.dateOfBirthPicker = new System.Windows.Forms.DateTimePicker();
             this.buttonUpdateInfo = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateNid = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateAddress = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxDateOfBirth = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateDateOfBirth = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateGender = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateMothername = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateFathername = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxCandidateName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).BeginInit();
@@ -197,6 +197,7 @@ namespace VMS.Views.GeneralPublic
             this.dataGridViewCandidates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCandidates.Size = new System.Drawing.Size(185, 302);
             this.dataGridViewCandidates.TabIndex = 2;
+            this.dataGridViewCandidates.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCandidates_CellClick);
             // 
             // labelVoteInfo
             // 
@@ -236,14 +237,14 @@ namespace VMS.Views.GeneralPublic
             this.buttonUpdateInfo.UseVisualStyleBackColor = true;
             this.buttonUpdateInfo.Click += new System.EventHandler(this.buttonUpdateInfo_Click);
             // 
-            // textBox1
+            // textBoxCandidateNid
             // 
-            this.textBox1.Location = new System.Drawing.Point(303, 234);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 23);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.Text = "Value";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateNid.Location = new System.Drawing.Point(303, 234);
+            this.textBoxCandidateNid.Name = "textBoxCandidateNid";
+            this.textBoxCandidateNid.ReadOnly = true;
+            this.textBoxCandidateNid.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateNid.TabIndex = 14;
+            this.textBoxCandidateNid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -254,14 +255,14 @@ namespace VMS.Views.GeneralPublic
             this.label9.TabIndex = 7;
             this.label9.Text = "NID :";
             // 
-            // textBox2
+            // textBoxCandidateAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(303, 205);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 23);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.Text = "Value";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateAddress.Location = new System.Drawing.Point(303, 205);
+            this.textBoxCandidateAddress.Name = "textBoxCandidateAddress";
+            this.textBoxCandidateAddress.ReadOnly = true;
+            this.textBoxCandidateAddress.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateAddress.TabIndex = 15;
+            this.textBoxCandidateAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -272,14 +273,14 @@ namespace VMS.Views.GeneralPublic
             this.label10.TabIndex = 8;
             this.label10.Text = "Address :";
             // 
-            // textBoxDateOfBirth
+            // textBoxCandidateDateOfBirth
             // 
-            this.textBoxDateOfBirth.Location = new System.Drawing.Point(303, 176);
-            this.textBoxDateOfBirth.Name = "textBoxDateOfBirth";
-            this.textBoxDateOfBirth.Size = new System.Drawing.Size(190, 23);
-            this.textBoxDateOfBirth.TabIndex = 16;
-            this.textBoxDateOfBirth.Text = "Value";
-            this.textBoxDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateDateOfBirth.Location = new System.Drawing.Point(303, 176);
+            this.textBoxCandidateDateOfBirth.Name = "textBoxCandidateDateOfBirth";
+            this.textBoxCandidateDateOfBirth.ReadOnly = true;
+            this.textBoxCandidateDateOfBirth.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateDateOfBirth.TabIndex = 16;
+            this.textBoxCandidateDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -290,14 +291,14 @@ namespace VMS.Views.GeneralPublic
             this.label11.TabIndex = 9;
             this.label11.Text = "Date Of Birth :";
             // 
-            // textBox3
+            // textBoxCandidateGender
             // 
-            this.textBox3.Location = new System.Drawing.Point(303, 147);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 23);
-            this.textBox3.TabIndex = 17;
-            this.textBox3.Text = "Value";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateGender.Location = new System.Drawing.Point(303, 147);
+            this.textBoxCandidateGender.Name = "textBoxCandidateGender";
+            this.textBoxCandidateGender.ReadOnly = true;
+            this.textBoxCandidateGender.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateGender.TabIndex = 17;
+            this.textBoxCandidateGender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -308,14 +309,14 @@ namespace VMS.Views.GeneralPublic
             this.label12.TabIndex = 10;
             this.label12.Text = "Gender :";
             // 
-            // textBox4
+            // textBoxCandidateMothername
             // 
-            this.textBox4.Location = new System.Drawing.Point(303, 118);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(190, 23);
-            this.textBox4.TabIndex = 18;
-            this.textBox4.Text = "Value";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateMothername.Location = new System.Drawing.Point(303, 118);
+            this.textBoxCandidateMothername.Name = "textBoxCandidateMothername";
+            this.textBoxCandidateMothername.ReadOnly = true;
+            this.textBoxCandidateMothername.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateMothername.TabIndex = 18;
+            this.textBoxCandidateMothername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
@@ -326,14 +327,14 @@ namespace VMS.Views.GeneralPublic
             this.label13.TabIndex = 11;
             this.label13.Text = "Mother\'s Name :";
             // 
-            // textBox5
+            // textBoxCandidateFathername
             // 
-            this.textBox5.Location = new System.Drawing.Point(303, 89);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(190, 23);
-            this.textBox5.TabIndex = 19;
-            this.textBox5.Text = "Value";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateFathername.Location = new System.Drawing.Point(303, 89);
+            this.textBoxCandidateFathername.Name = "textBoxCandidateFathername";
+            this.textBoxCandidateFathername.ReadOnly = true;
+            this.textBoxCandidateFathername.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateFathername.TabIndex = 19;
+            this.textBoxCandidateFathername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label14
             // 
@@ -344,14 +345,14 @@ namespace VMS.Views.GeneralPublic
             this.label14.TabIndex = 12;
             this.label14.Text = "Father\'s Name :";
             // 
-            // textBox6
+            // textBoxCandidateName
             // 
-            this.textBox6.Location = new System.Drawing.Point(303, 60);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(190, 23);
-            this.textBox6.TabIndex = 20;
-            this.textBox6.Text = "Value";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxCandidateName.Location = new System.Drawing.Point(303, 60);
+            this.textBoxCandidateName.Name = "textBoxCandidateName";
+            this.textBoxCandidateName.ReadOnly = true;
+            this.textBoxCandidateName.Size = new System.Drawing.Size(190, 23);
+            this.textBoxCandidateName.TabIndex = 20;
+            this.textBoxCandidateName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
@@ -381,19 +382,19 @@ namespace VMS.Views.GeneralPublic
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 377);
             this.Controls.Add(this.comboBoxGender);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCandidateNid);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxCandidateAddress);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBoxDateOfBirth);
+            this.Controls.Add(this.textBoxCandidateDateOfBirth);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxCandidateGender);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxCandidateMothername);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBoxCandidateFathername);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBoxCandidateName);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.buttonUpdateInfo);
             this.Controls.Add(this.dateOfBirthPicker);
@@ -443,19 +444,19 @@ namespace VMS.Views.GeneralPublic
         private System.Windows.Forms.Button buttonVote;
         private System.Windows.Forms.DateTimePicker dateOfBirthPicker;
         private System.Windows.Forms.Button buttonUpdateInfo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxCandidateNid;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxCandidateAddress;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxDateOfBirth;
+        private System.Windows.Forms.TextBox textBoxCandidateDateOfBirth;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxCandidateGender;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxCandidateMothername;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxCandidateFathername;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxCandidateName;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBoxGender;
     }
