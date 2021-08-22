@@ -46,7 +46,8 @@ namespace VMS.Views.GeneralPublic
                 textBoxName.Text = userDetail.Name;
                 textBoxFathername.Text = userDetail.FatherName;
                 textBoxMotherName.Text = userDetail.MotherName;
-                textBoxGender.Text = userDetail.Gender;
+                //textBoxGender.Text = userDetail.Gender;
+                comboBoxGender.SelectedIndex = comboBoxGender.FindStringExact(userDetail.Gender);
                 textBoxAddress.Text = userDetail.Address;
                 textBoxNid.Text = userDetail.Nid;
                 dateOfBirthPicker.Value = Convert.ToDateTime(userDetail.DateOfBirth.ToString("yyyy/MM/dd"));
@@ -56,7 +57,8 @@ namespace VMS.Views.GeneralPublic
                 textBoxName.Text = "";
                 textBoxFathername.Text = "";
                 textBoxMotherName.Text = "";
-                textBoxGender.Text = "";
+                //textBoxGender.Text = "";
+                comboBoxGender.Text = "";
                 textBoxAddress.Text = "";
                 dateOfBirthPicker.Value = DateTime.Now;
                 textBoxNid.Text = "";
@@ -78,7 +80,7 @@ namespace VMS.Views.GeneralPublic
                 textBoxName.Text,
                 textBoxFathername.Text,
                 textBoxMotherName.Text,
-                textBoxGender.Text,
+                comboBoxGender.Text,
                 dateOfBirthPicker.Value,
                 textBoxNid.Text,
                 textBoxAddress.Text))

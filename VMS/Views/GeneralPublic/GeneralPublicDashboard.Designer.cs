@@ -38,7 +38,6 @@ namespace VMS.Views.GeneralPublic
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxMotherName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxGender = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@ namespace VMS.Views.GeneralPublic
             this.label14 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.comboBoxGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCandidates)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,13 +139,6 @@ namespace VMS.Views.GeneralPublic
             this.label5.Size = new System.Drawing.Size(51, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Gender :";
-            // 
-            // textBoxGender
-            // 
-            this.textBoxGender.Location = new System.Drawing.Point(611, 159);
-            this.textBoxGender.Name = "textBoxGender";
-            this.textBoxGender.Size = new System.Drawing.Size(222, 23);
-            this.textBoxGender.TabIndex = 1;
             // 
             // label6
             // 
@@ -369,11 +362,25 @@ namespace VMS.Views.GeneralPublic
             this.label15.TabIndex = 13;
             this.label15.Text = "Name :";
             // 
+            // comboBoxGender
+            // 
+            this.comboBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGender.FormattingEnabled = true;
+            this.comboBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.comboBoxGender.Location = new System.Drawing.Point(611, 159);
+            this.comboBoxGender.Name = "comboBoxGender";
+            this.comboBoxGender.Size = new System.Drawing.Size(222, 23);
+            this.comboBoxGender.TabIndex = 21;
+            // 
             // GeneralPublicDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 377);
+            this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox2);
@@ -395,7 +402,6 @@ namespace VMS.Views.GeneralPublic
             this.Controls.Add(this.dataGridViewCandidates);
             this.Controls.Add(this.textBoxNid);
             this.Controls.Add(this.textBoxAddress);
-            this.Controls.Add(this.textBoxGender);
             this.Controls.Add(this.textBoxMotherName);
             this.Controls.Add(this.textBoxFathername);
             this.Controls.Add(this.textBoxName);
@@ -427,7 +433,6 @@ namespace VMS.Views.GeneralPublic
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxMotherName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxGender;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label label7;
@@ -452,5 +457,6 @@ namespace VMS.Views.GeneralPublic
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBoxGender;
     }
 }
