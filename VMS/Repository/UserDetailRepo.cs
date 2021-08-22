@@ -44,5 +44,10 @@ namespace VMS.Repository
             }
         }
 
+        public string GetUserFullName(string username)
+        {
+            return _dbc.GetSingleData("select name from user_details where username='"+username+"'","name");
+        }
+
     }
 }

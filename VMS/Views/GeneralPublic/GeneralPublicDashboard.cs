@@ -29,7 +29,8 @@ namespace VMS.Views.GeneralPublic
             buttonVote.Enabled = !userHasVoted;
             if (userHasVoted)
             {
-                labelVoteInfo.Text = @"You have voted for : "+_vr.VotedCandidate(_username);
+                string votedCandidateUsername = _vr.VotedCandidate(_username);
+                labelVoteInfo.Text = @"You have voted for : "+_udr.GetUserFullName(votedCandidateUsername)+" ("+votedCandidateUsername+")";
             }
             else
             {
