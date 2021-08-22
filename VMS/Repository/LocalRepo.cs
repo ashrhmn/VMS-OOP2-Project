@@ -42,7 +42,14 @@ namespace VMS.Repository
         {
             System.Windows.Forms.MessageBox.Show(@"Query : " + query + @"
 
-" + ex, @"Error in SQL",MessageBoxButtons.OK,MessageBoxIcon.Error);
+" + ex, @"Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowErrorMessage(Exception ex, string fileName, int lineNo)
+        {
+            System.Windows.Forms.MessageBox.Show(@"File : " + fileName +" (Line : "+lineNo+")"+ @"
+
+" + ex, @"Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

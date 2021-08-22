@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using VMS.Entity;
 using VMS.Repository;
@@ -21,6 +22,26 @@ namespace VMS.Views
         {
             dataGridViewCandidates.DataSource = _vr.CandidateResultDataTable();
             dataGridViewCandidates.Sort(dataGridViewCandidates.Columns[1], ListSortDirection.Descending);
+
+            foreach (DataGridViewColumn column in dataGridViewCandidates.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            string woningCandidateUsername = dataGridViewCandidates.Rows[0].Cells[0].Value.ToString();
+
+            int wonByVote = 0;
+
+            try
+            {
+                wonByVote = int.Parse(dataGridViewCandidates.Rows[0].Cells[1].Value.ToString())- int.Parse(dataGridViewCandidates.Rows[1].Cells[1].Value.ToString()); 
+            }
+            catch (Exception ex)
+            {
+                new LocalRepo().ShowErrorMessage(ex,"VoteResult.cs",40);
+            }
+
+            labelVoteResultInfo.Text = _udr.GetUserFullName(woningCandidateUsername)+" ("+woningCandidateUsername +")"+ " has own by "+wonByVote.ToString()+" votes";
         }
 
         private void dataGridViewCandidates_CellClick(object sender, DataGridViewCellEventArgs e)

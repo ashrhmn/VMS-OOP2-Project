@@ -26,7 +26,7 @@ namespace VMS.Repository
 
         public Boolean VoteCandidate(string username, string candidate)
         {
-            return dbc.IsExecuted("insert into votes values('"+ username + "','"+ candidate + "')");
+            return dbc.IsExecuted("insert into votes(voter, candidate) values('"+ username + "','"+ candidate + "')");
         }
 
         public int VoteCount(string candidate)
