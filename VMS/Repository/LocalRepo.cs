@@ -47,7 +47,14 @@ namespace VMS.Repository
 
         public void ShowErrorMessage(Exception ex, string fileName, int lineNo)
         {
-            System.Windows.Forms.MessageBox.Show(@"File : " + fileName +" (Line : "+lineNo+")"+ @"
+            System.Windows.Forms.MessageBox.Show(@"File : " + fileName + " (Line : " + lineNo + ")" + @"
+
+" + ex, @"Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowCustomErrorMessage(Exception ex, string customMessage)
+        {
+            System.Windows.Forms.MessageBox.Show(@"Message : " + customMessage + @"
 
 " + ex, @"Error in SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

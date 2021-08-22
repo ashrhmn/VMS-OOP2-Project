@@ -16,33 +16,64 @@ namespace VMS.Views
             _vr = new VoteRepo();
             _udr = new UserDetailRepo();
             UpdateCandidateTable();
+            MakeDataGridViewNotSortable();
+            UpdateVoteInfo();
+        }
+
+        void MakeDataGridViewNotSortable()
+        {
+            foreach (DataGridViewColumn column in dataGridViewCandidates.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        void UpdateVoteInfo()
+        {
+            string woningCandidateUsername = GetDataGridViewDataToString(0, 0);
+            try
+            {
+                int wonByVote = int.Parse(GetDataGridViewDataToString(0, 1)) - int.Parse(GetDataGridViewDataToString(1, 1));
+                if (wonByVote > 0)
+                {
+                    labelVoteResultInfo.Text = _udr.GetUserFullName(woningCandidateUsername) + " (" + woningCandidateUsername + ")" + " has own by " + wonByVote.ToString() + " vote(s)";
+                }
+                else
+                {
+                    labelVoteResultInfo.Text = "Election tie between candidates " + GetDataGridViewDataToString(0, 0) + " (" + _udr.GetUserFullName(GetDataGridViewDataToString(0, 0)) + ") and " + GetDataGridViewDataToString(1, 0) + " (" + _udr.GetUserFullName(GetDataGridViewDataToString(1, 0)) + ")";
+                }
+            }
+            catch (Exception ex)
+            {
+                new LocalRepo().ShowErrorMessage(ex, "VoteResult.cs", 40);
+                labelVoteResultInfo.Text = "Error showing vote result..";
+            }
         }
 
         void UpdateCandidateTable()
         {
             dataGridViewCandidates.DataSource = _vr.CandidateResultDataTable();
             dataGridViewCandidates.Sort(dataGridViewCandidates.Columns[1], ListSortDirection.Descending);
-
-            foreach (DataGridViewColumn column in dataGridViewCandidates.Columns)
-            {
-                column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
-
-            string woningCandidateUsername = dataGridViewCandidates.Rows[0].Cells[0].Value.ToString();
-
-            int wonByVote = 0;
-
-            try
-            {
-                wonByVote = int.Parse(dataGridViewCandidates.Rows[0].Cells[1].Value.ToString())- int.Parse(dataGridViewCandidates.Rows[1].Cells[1].Value.ToString()); 
-            }
-            catch (Exception ex)
-            {
-                new LocalRepo().ShowErrorMessage(ex,"VoteResult.cs",40);
-            }
-
-            labelVoteResultInfo.Text = _udr.GetUserFullName(woningCandidateUsername)+" ("+woningCandidateUsername +")"+ " has own by "+wonByVote.ToString()+" votes";
         }
+
+        string GetDataGridViewDataToString(int rowNo, int columnNo)
+        {
+            return dataGridViewCandidates.Rows[rowNo].Cells[columnNo].Value.ToString();
+        }
+
+        //int TryDataGridViewDataToStringToInt(int rowNo, int columnNo)
+        //{
+        //    string data = GetDataGridViewDataToString(rowNo, columnNo);
+        //    try
+        //    {
+        //        return int.Parse(data);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        new LocalRepo().ShowCustomErrorMessage(ex, "Error parsing "+data+" to Int");
+        //        return 0;
+        //    }
+        //}
 
         private void dataGridViewCandidates_CellClick(object sender, DataGridViewCellEventArgs e)
         {
