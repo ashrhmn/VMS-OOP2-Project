@@ -2,10 +2,10 @@
 {
     internal class User
     {
-        //public User()
-        //{
-            
-        //}
+        public User()
+        {
+            //Do not remove the constructor even if it has 0 references, needed for LocalRepo.cs
+        }
 
         public User(string username, string password, string role)
         {
