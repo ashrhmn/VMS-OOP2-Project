@@ -106,16 +106,26 @@ namespace VMS.Views.Admin
             if (comboBoxOperationMode.SelectedIndex == 0)
             {
                 //Update Mode
-                buttonUpdate.Text = @"Update";
-                buttonDelete.Enabled = true;
+                OperationModeUpdating();
             }
             else
             {
                 //Add Mode
-                buttonUpdate.Text = @"Add";
-                buttonDelete.Enabled = false;
+                OperationModeAdding();
             }
             CheckUsernameAvailability();
+        }
+
+        void OperationModeAdding()
+        {
+            buttonUpdate.Text = @"Add";
+            buttonDelete.Enabled = false;
+        }
+
+        void OperationModeUpdating()
+        {
+            buttonUpdate.Text = @"Update";
+            buttonDelete.Enabled = true;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -161,6 +171,12 @@ namespace VMS.Views.Admin
                     textBoxUsername.ForeColor = Color.Black;
                     buttonUpdate.Enabled = true;
                 }
+            }
+            else
+            {
+                userNameErrorLabel.Text = "";
+                textBoxUsername.ForeColor = Color.Black;
+                buttonUpdate.Enabled = true;
             }
         }
 
