@@ -23,6 +23,7 @@ namespace VMS.Views.Admin
             ActivatePanel(new AdminPanel());
             buttonAdminPanel.BackColor = Color.Azure;
             buttonViewResult.BackColor = Color.LightGray;
+            buttonSignUpView.BackColor = Color.LightGray;
         }
 
         void ActivatePanel(Form formToActivate)
@@ -51,6 +52,15 @@ namespace VMS.Views.Admin
             ActivatePanel(new VoteResult());
             buttonAdminPanel.BackColor = Color.LightGray;
             buttonViewResult.BackColor = Color.Azure;
+            buttonSignUpView.BackColor = Color.LightGray;
+        }
+
+        private void buttonSignUpView_Click(object sender, EventArgs e)
+        {
+            ActivatePanel(new ManageSignUps());
+            buttonAdminPanel.BackColor = Color.LightGray;
+            buttonViewResult.BackColor = Color.LightGray;
+            buttonSignUpView.BackColor = Color.Azure;
         }
     }
 }

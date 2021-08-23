@@ -37,14 +37,31 @@ namespace VMS
 
         void HandleSignUp(string username, string password)
         {
-            if (ur.AddUser(new User(username, password, "General Public")))
+            if (!ur.IsAuthenticated(username, password))
             {
-                MessageBox.Show(@"Sign Up Successful, Add your Details on next page");
-                ActivatePanel(new Views.Dashboard(username, HandleLogout));
+                if (ur.UserExists(username))
+                {
+                    MessageBox.Show(@"Username already exists, try using different username");
+                }
+                else
+                {
+                    if (ur.ApplyNewUser(new User(username, password, "General Public")))
+                    {
+                        MessageBox.Show(@"Applied for new account, Try loging in after your account is verified");
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Sign Up Failed");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show(@"Sign Up Failed");
+                var confirmationResult = MessageBox.Show("You already have an account and credentials are correct. Do you wish to login now?","Confirmation",MessageBoxButtons.OKCancel);
+                if(confirmationResult == DialogResult.OK)
+                {
+                    ActivatePanel(new Views.Dashboard(username, HandleLogout));
+                }
             }
         }
 
@@ -57,7 +74,14 @@ namespace VMS
             }
             else
             {
-                MessageBox.Show(@"Invalid username or password");
+                if (ur.IsPendingAccount(username, password))
+                {
+                    MessageBox.Show(@"Your account is in pending list waiting to be confirmed by an admin");
+                }
+                else
+                {
+                    MessageBox.Show(@"Invalid username or password");
+                }
             }
         }
 

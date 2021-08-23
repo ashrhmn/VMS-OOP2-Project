@@ -19,6 +19,14 @@ namespace VMS.Repository
                                    password + "'");
         }
 
+        public bool IsPendingAccount(string username, string password)
+        {
+            return _dbc.DataExists("select * from pending_signups where username='" + username + "' and password ='" +
+                                   password + "'");
+        }
+
+
+
         public bool UpdateUser(Entity.User user, string username)
         {
             Boolean updateSuccessful = _dbc.IsExecuted("update user_credentials set username='" + user.Username + "', password='" + user.Password + "', role='" + user.Role + "' where username='" + username + "'");
@@ -42,6 +50,15 @@ namespace VMS.Repository
             return _dbc.IsExecuted("insert into user_credentials(username,password,role) values('" + user.Username + "','" + user.Password + "','" + user.Role + "')");
         }
 
+        public bool DeletePendingUser(string username)
+        {
+            return _dbc.IsExecuted("delete from pending_signups where username='"+username+"'");
+        }
+        public bool ApplyNewUser(Entity.User user)
+        {
+            return _dbc.IsExecuted("insert into pending_signups(username,password) values('" + user.Username + "','" + user.Password + "')");
+        }
+
         public bool DeleteUser(string username)
         {
             //Delete username throughout entire database
@@ -63,6 +80,16 @@ namespace VMS.Repository
         public DataTable GetUsersDataTable()
         {
             return _dbc.GetDataTable("select * from user_credentials");
+        }
+
+        public bool UserExists(string username)
+        {
+            return _dbc.DataExists("select username from user_credentials where username='"+username+"'");
+        }
+
+        public DataTable GetPendingUsersDataTable()
+        {
+            return _dbc.GetDataTable("select * from pending_signups");
         }
 
         public DataTable GetGeneralPublicDataTable()
