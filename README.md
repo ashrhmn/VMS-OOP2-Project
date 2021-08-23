@@ -26,6 +26,7 @@ There are 3 types of users here, They are -
   * [x] View data ~~for all district~~
   * [x] View Total Result
   * [x] Manage total list of **General Public** with ~~NID and~~ their details
+  * [x] Approve applied new accounts and assign NID to the new accounts
 * In this project **District Manager** has the following features:
   * [x] Login
   * [x] Assign a **General Public** as Candidate for Election
@@ -33,7 +34,7 @@ There are 3 types of users here, They are -
   * [x] View result ~~for assigned district~~
 * In this project the **General Public** has the following features:
   * [x] Login
-  * [x] Create Account ~~(with NID must be included in the **NID Database** that **Admin** manages)~~
+  * [x] ~~Create~~ Apply for Account ~~(with NID must be included in the **NID Database** that **Admin** manages)~~
   * [x] Vote any of the Candidates
 
 *Had to remove NID assignment and District wise Voting*
