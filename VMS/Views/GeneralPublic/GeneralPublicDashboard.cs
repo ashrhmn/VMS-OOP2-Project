@@ -50,7 +50,15 @@ namespace VMS.Views.GeneralPublic
                 comboBoxGender.SelectedIndex = comboBoxGender.FindStringExact(userDetail.Gender);
                 textBoxAddress.Text = userDetail.Address;
                 textBoxNid.Text = userDetail.Nid;
-                dateOfBirthPicker.Value = Convert.ToDateTime(userDetail.DateOfBirth.ToString("yyyy/MM/dd"));
+                try
+                {
+                    dateOfBirthPicker.Value = Convert.ToDateTime(userDetail.DateOfBirth.ToString("yyyy/MM/dd"));
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.ToString());
+                }
+                
             }
             else
             {

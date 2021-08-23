@@ -94,6 +94,7 @@ namespace VMS.Views
             this.textBoxNid.Location = new System.Drawing.Point(644, 429);
             this.textBoxNid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxNid.Name = "textBoxNid";
+            this.textBoxNid.ReadOnly = true;
             this.textBoxNid.Size = new System.Drawing.Size(218, 32);
             this.textBoxNid.TabIndex = 10;
             // 
@@ -103,6 +104,7 @@ namespace VMS.Views
             this.textBoxDateOfBirth.Location = new System.Drawing.Point(644, 341);
             this.textBoxDateOfBirth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDateOfBirth.Name = "textBoxDateOfBirth";
+            this.textBoxDateOfBirth.ReadOnly = true;
             this.textBoxDateOfBirth.Size = new System.Drawing.Size(218, 32);
             this.textBoxDateOfBirth.TabIndex = 11;
             // 
@@ -112,6 +114,7 @@ namespace VMS.Views
             this.textBoxAddress.Location = new System.Drawing.Point(645, 385);
             this.textBoxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.ReadOnly = true;
             this.textBoxAddress.Size = new System.Drawing.Size(218, 32);
             this.textBoxAddress.TabIndex = 12;
             // 
@@ -121,6 +124,7 @@ namespace VMS.Views
             this.textBoxGender.Location = new System.Drawing.Point(644, 297);
             this.textBoxGender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxGender.Name = "textBoxGender";
+            this.textBoxGender.ReadOnly = true;
             this.textBoxGender.Size = new System.Drawing.Size(218, 32);
             this.textBoxGender.TabIndex = 13;
             // 
@@ -130,6 +134,7 @@ namespace VMS.Views
             this.textBoxMotherName.Location = new System.Drawing.Point(644, 254);
             this.textBoxMotherName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxMotherName.Name = "textBoxMotherName";
+            this.textBoxMotherName.ReadOnly = true;
             this.textBoxMotherName.Size = new System.Drawing.Size(218, 32);
             this.textBoxMotherName.TabIndex = 14;
             // 
@@ -139,6 +144,7 @@ namespace VMS.Views
             this.textBoxFathername.Location = new System.Drawing.Point(644, 213);
             this.textBoxFathername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxFathername.Name = "textBoxFathername";
+            this.textBoxFathername.ReadOnly = true;
             this.textBoxFathername.Size = new System.Drawing.Size(218, 32);
             this.textBoxFathername.TabIndex = 15;
             // 
@@ -148,6 +154,7 @@ namespace VMS.Views
             this.textBoxName.Location = new System.Drawing.Point(644, 169);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(218, 32);
             this.textBoxName.TabIndex = 16;
             // 
@@ -157,6 +164,7 @@ namespace VMS.Views
             this.textBoxUsername.Location = new System.Drawing.Point(644, 130);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.ReadOnly = true;
             this.textBoxUsername.Size = new System.Drawing.Size(218, 32);
             this.textBoxUsername.TabIndex = 17;
             // 

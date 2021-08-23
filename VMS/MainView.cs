@@ -76,7 +76,7 @@ namespace VMS
             {
                 if (ur.IsPendingAccount(username, password))
                 {
-                    MessageBox.Show(@"Your account is in pending list waiting to be confirmed by an admin");
+                    MessageBox.Show(@"Your account is in pending list waiting to be confirmed by an admin. Please try again shortly");
                 }
                 else
                 {

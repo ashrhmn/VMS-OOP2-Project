@@ -42,7 +42,7 @@ namespace VMS.Views.Admin
 
             if (ur.AddUser(new Entity.User(username,password,"General Public"))) //Approve User
             {
-                MessageBox.Show("User approved");
+                MessageBox.Show("Selected User approved");
                 if (ur.DeletePendingUser(username)) //Delete Pending Requesst
                 {
                     MessageBox.Show("Removed pending request for the user");
@@ -71,6 +71,7 @@ namespace VMS.Views.Admin
             {
                 MessageBox.Show("User approve failed");
             }
+            UpdateGridView();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -84,6 +85,12 @@ namespace VMS.Views.Admin
             {
                 MessageBox.Show("Removing the pending request failed");
             }
+            UpdateGridView();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateGridView();
         }
     }
 }

@@ -71,7 +71,7 @@ namespace VMS.Views.Admin
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usersGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.usersGridView.Location = new System.Drawing.Point(37, 89);
+            this.usersGridView.Location = new System.Drawing.Point(12, 89);
             this.usersGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usersGridView.MultiSelect = false;
             this.usersGridView.Name = "usersGridView";
@@ -80,7 +80,7 @@ namespace VMS.Views.Admin
             this.usersGridView.RowHeadersWidth = 51;
             this.usersGridView.RowTemplate.Height = 25;
             this.usersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersGridView.Size = new System.Drawing.Size(465, 344);
+            this.usersGridView.Size = new System.Drawing.Size(528, 344);
             this.usersGridView.TabIndex = 0;
             this.usersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersGridView_CellClick);
             // 
@@ -99,7 +99,7 @@ namespace VMS.Views.Admin
             // textBoxUsername
             // 
             this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxUsername.Location = new System.Drawing.Point(675, 177);
+            this.textBoxUsername.Location = new System.Drawing.Point(702, 179);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(159, 32);
@@ -110,7 +110,7 @@ namespace VMS.Views.Admin
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(558, 180);
+            this.label1.Location = new System.Drawing.Point(585, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 25);
             this.label1.TabIndex = 5;
@@ -120,7 +120,7 @@ namespace VMS.Views.Admin
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPassword.Location = new System.Drawing.Point(675, 222);
+            this.textBoxPassword.Location = new System.Drawing.Point(702, 224);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(159, 32);
@@ -130,7 +130,7 @@ namespace VMS.Views.Admin
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(569, 225);
+            this.label2.Location = new System.Drawing.Point(596, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 5;
@@ -141,7 +141,7 @@ namespace VMS.Views.Admin
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(607, 273);
+            this.label3.Location = new System.Drawing.Point(634, 275);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 25);
             this.label3.TabIndex = 5;
@@ -157,7 +157,7 @@ namespace VMS.Views.Admin
             "Admin",
             "District Manager",
             "General Public"});
-            this.comboBoxRole.Location = new System.Drawing.Point(675, 270);
+            this.comboBoxRole.Location = new System.Drawing.Point(702, 272);
             this.comboBoxRole.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(159, 33);
@@ -166,7 +166,7 @@ namespace VMS.Views.Admin
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDelete.Location = new System.Drawing.Point(664, 341);
+            this.buttonDelete.Location = new System.Drawing.Point(691, 343);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(86, 37);
@@ -178,7 +178,7 @@ namespace VMS.Views.Admin
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonUpdate.Location = new System.Drawing.Point(756, 341);
+            this.buttonUpdate.Location = new System.Drawing.Point(783, 343);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(86, 37);
@@ -195,7 +195,7 @@ namespace VMS.Views.Admin
             this.comboBoxOperationMode.Items.AddRange(new object[] {
             "Update Existing",
             "Add New"});
-            this.comboBoxOperationMode.Location = new System.Drawing.Point(675, 138);
+            this.comboBoxOperationMode.Location = new System.Drawing.Point(702, 140);
             this.comboBoxOperationMode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxOperationMode.Name = "comboBoxOperationMode";
             this.comboBoxOperationMode.Size = new System.Drawing.Size(159, 33);
@@ -206,7 +206,7 @@ namespace VMS.Views.Admin
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(519, 141);
+            this.label4.Location = new System.Drawing.Point(546, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 25);
             this.label4.TabIndex = 5;
@@ -217,7 +217,7 @@ namespace VMS.Views.Admin
             // 
             this.userNameErrorLabel.AutoSize = true;
             this.userNameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.userNameErrorLabel.Location = new System.Drawing.Point(840, 180);
+            this.userNameErrorLabel.Location = new System.Drawing.Point(867, 182);
             this.userNameErrorLabel.Name = "userNameErrorLabel";
             this.userNameErrorLabel.Size = new System.Drawing.Size(72, 25);
             this.userNameErrorLabel.TabIndex = 13;

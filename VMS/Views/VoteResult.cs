@@ -30,24 +30,32 @@ namespace VMS.Views
 
         void UpdateVoteInfo()
         {
-            string woningCandidateUsername = GetDataGridViewDataToString(0, 0);
-            try
+            if (dataGridViewCandidates.Rows.Count != 0)
             {
-                int wonByVote = int.Parse(GetDataGridViewDataToString(0, 1)) - int.Parse(GetDataGridViewDataToString(1, 1));
-                if (wonByVote > 0)
+                string woningCandidateUsername = GetDataGridViewDataToString(0, 0);
+                try
                 {
-                    labelVoteResultInfo.Text = _udr.GetUserFullName(woningCandidateUsername) + " (" + woningCandidateUsername + ")" + " has own by " + wonByVote.ToString() + " vote(s)";
+                    int wonByVote = int.Parse(GetDataGridViewDataToString(0, 1)) - int.Parse(GetDataGridViewDataToString(1, 1));
+                    if (wonByVote > 0)
+                    {
+                        labelVoteResultInfo.Text = _udr.GetUserFullName(woningCandidateUsername) + " (" + woningCandidateUsername + ")" + " has own by " + wonByVote.ToString() + " vote(s)";
+                    }
+                    else
+                    {
+                        labelVoteResultInfo.Text = "Election tie between candidates " + GetDataGridViewDataToString(0, 0) + " (" + _udr.GetUserFullName(GetDataGridViewDataToString(0, 0)) + ") and " + GetDataGridViewDataToString(1, 0) + " (" + _udr.GetUserFullName(GetDataGridViewDataToString(1, 0)) + ")";
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    labelVoteResultInfo.Text = "Election tie between candidates " + GetDataGridViewDataToString(0, 0) + " (" + _udr.GetUserFullName(GetDataGridViewDataToString(0, 0)) + ") and " + GetDataGridViewDataToString(1, 0) + " (" + _udr.GetUserFullName(GetDataGridViewDataToString(1, 0)) + ")";
+                    new LocalRepo().ShowErrorMessage(ex, "VoteResult.cs", 40);
+                    labelVoteResultInfo.Text = "Error showing vote result..";
                 }
             }
-            catch (Exception ex)
+            else
             {
-                new LocalRepo().ShowErrorMessage(ex, "VoteResult.cs", 40);
-                labelVoteResultInfo.Text = "Error showing vote result..";
+                labelVoteResultInfo.Text = "Not enough data to show result";
             }
+            
         }
 
         void UpdateCandidateTable()

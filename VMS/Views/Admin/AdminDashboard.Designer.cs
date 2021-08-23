@@ -56,7 +56,7 @@ namespace VMS.Views.Admin
             this.buttonSignUpView.Name = "buttonSignUpView";
             this.buttonSignUpView.Size = new System.Drawing.Size(167, 89);
             this.buttonSignUpView.TabIndex = 1;
-            this.buttonSignUpView.Text = "SignUps";
+            this.buttonSignUpView.Text = "Pending SignUps";
             this.buttonSignUpView.UseVisualStyleBackColor = true;
             this.buttonSignUpView.Click += new System.EventHandler(this.buttonSignUpView_Click);
             // 

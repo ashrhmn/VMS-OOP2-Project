@@ -33,7 +33,7 @@ namespace VMS.Repository
             if (user.Username != username)
             {
                 //Update username throughout entire database
-                foreach (string tableName in new[] { "user_details", "candidates" })
+                foreach (string tableName in new[] { "user_details", "candidates", "votes" })
                 {
                     if (!_dbc.IsExecuted("update " + tableName + " set username='" + user.Username + "' where username='" + username + "'"))
                     {
@@ -62,7 +62,7 @@ namespace VMS.Repository
         public bool DeleteUser(string username)
         {
             //Delete username throughout entire database
-            foreach (string tableName in new[] { "user_details", "candidates" })
+            foreach (string tableName in new[] { "user_details", "candidates", "votes" })
             {
                 if (!_dbc.IsExecuted("delete from "+tableName+" where username='" + username + "'"))
                 {

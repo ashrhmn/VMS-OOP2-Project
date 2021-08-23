@@ -14,24 +14,24 @@ namespace VMS.Repository
 
         public bool HasVoted(string username)
         {
-            return dbc.DataExists("select voter from votes where voter='"+username+"'");
+            return dbc.DataExists("select username as voter from votes where username='"+username+"'");
         }
 
         public string VotedCandidate(string username)
         {
             string candidate =
-                dbc.GetSingleData("select * from votes where voter = '"+username+"'","candidate");
+                dbc.GetSingleData("select * from votes where username = '"+username+"'","candidate");
             return candidate;
         }
 
         public Boolean VoteCandidate(string username, string candidate)
         {
-            return dbc.IsExecuted("insert into votes(voter, candidate) values('"+ username + "','"+ candidate + "')");
+            return dbc.IsExecuted("insert into votes(username, candidate) values('"+ username + "','"+ candidate + "')");
         }
 
         public int VoteCount(string candidate)
         {
-            return dbc.DataCount("select voter from votes where candidate='"+candidate+"'");
+            return dbc.DataCount("select username from votes where candidate='"+candidate+"'");
         }
 
         public DataTable CandidateListDataTable()
@@ -40,7 +40,7 @@ namespace VMS.Repository
         }
         public DataTable CandidateResultDataTable()
         {
-            return dbc.GetDataTable("select username as candidate, (select count(voter) from votes where candidate=username) as voteCount from candidates");
+            return dbc.GetDataTable("select candidates.username as candidate, (select count(votes.username) from votes where votes.candidate=candidates.username) as voteCount from candidates");
         }
     }
 }
