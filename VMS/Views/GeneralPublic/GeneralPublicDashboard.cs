@@ -54,11 +54,10 @@ namespace VMS.Views.GeneralPublic
                 {
                     dateOfBirthPicker.Value = Convert.ToDateTime(userDetail.DateOfBirth.ToString("yyyy/MM/dd"));
                 }
-                catch (Exception ex)
+                catch(Exception)
                 {
-                    //MessageBox.Show(ex.ToString());
-                }
-                
+
+                }                
             }
             else
             {

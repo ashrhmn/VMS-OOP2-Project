@@ -18,6 +18,7 @@ namespace VMS.Views.Admin
             ur = new Repository.UserRepo();
             udr = new Repository.UserDetailRepo();
             UpdateGridView();
+            SetAutoGenNid();
         }
 
         void UpdateGridView()
@@ -31,6 +32,11 @@ namespace VMS.Views.Admin
         }
 
         private void buttonAutogen_Click(object sender, EventArgs e)
+        {
+            SetAutoGenNid();
+        }
+
+        void SetAutoGenNid()
         {
             textBoxNid.Text = new Random().Next(100000000, 999999999).ToString();
         }
@@ -72,6 +78,7 @@ namespace VMS.Views.Admin
                 MessageBox.Show("User approve failed");
             }
             UpdateGridView();
+            SetAutoGenNid();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
