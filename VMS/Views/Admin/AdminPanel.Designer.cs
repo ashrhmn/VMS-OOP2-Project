@@ -87,7 +87,7 @@ namespace VMS.Views.Admin
             // buttonRefresh
             // 
             this.buttonRefresh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonRefresh.Location = new System.Drawing.Point(37, 441);
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 441);
             this.buttonRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(86, 35);

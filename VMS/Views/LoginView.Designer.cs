@@ -38,24 +38,31 @@ namespace VMS.Views
             // password
             // 
             this.password.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.password.Location = new System.Drawing.Point(378, 207);
+            this.password.Location = new System.Drawing.Point(432, 276);
+            this.password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(264, 44);
+            this.password.PlaceholderText = "PASSWORD";
+            this.password.Size = new System.Drawing.Size(301, 54);
             this.password.TabIndex = 0;
+            this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // username
             // 
             this.username.Font = new System.Drawing.Font("Lucida Sans Unicode", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.username.Location = new System.Drawing.Point(378, 142);
+            this.username.Location = new System.Drawing.Point(432, 189);
+            this.username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(264, 44);
+            this.username.PlaceholderText = "USERNAME";
+            this.username.Size = new System.Drawing.Size(301, 54);
             this.username.TabIndex = 0;
+            this.username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // buttonSignUp
             // 
-            this.buttonSignUp.Location = new System.Drawing.Point(412, 287);
+            this.buttonSignUp.Location = new System.Drawing.Point(471, 383);
+            this.buttonSignUp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSignUp.Name = "buttonSignUp";
-            this.buttonSignUp.Size = new System.Drawing.Size(75, 23);
+            this.buttonSignUp.Size = new System.Drawing.Size(86, 31);
             this.buttonSignUp.TabIndex = 1;
             this.buttonSignUp.Text = "Sign Up";
             this.buttonSignUp.UseVisualStyleBackColor = true;
@@ -63,9 +70,10 @@ namespace VMS.Views
             // 
             // buttonSignIn
             // 
-            this.buttonSignIn.Location = new System.Drawing.Point(532, 287);
+            this.buttonSignIn.Location = new System.Drawing.Point(608, 383);
+            this.buttonSignIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSignIn.Name = "buttonSignIn";
-            this.buttonSignIn.Size = new System.Drawing.Size(75, 23);
+            this.buttonSignIn.Size = new System.Drawing.Size(86, 31);
             this.buttonSignIn.TabIndex = 1;
             this.buttonSignIn.Text = "Sign In";
             this.buttonSignIn.UseVisualStyleBackColor = true;
@@ -73,13 +81,14 @@ namespace VMS.Views
             // 
             // LoginView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 436);
+            this.ClientSize = new System.Drawing.Size(1090, 581);
             this.Controls.Add(this.buttonSignIn);
             this.Controls.Add(this.buttonSignUp);
             this.Controls.Add(this.username);
             this.Controls.Add(this.password);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LoginView";
             this.Text = "LoginView";
             this.ResumeLayout(false);
