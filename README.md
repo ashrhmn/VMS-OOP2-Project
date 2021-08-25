@@ -9,6 +9,7 @@
 
 Voting Management System is a paperless documentary application or system used for voting a character in any type of election. The population of Bangladesh is spread throughout its districts. Everyone has to be counted in this voting system and managing their votes in a paper or ballot system is time-consuming. The Voting Management System is a modern and innovative project. If we looked into other developed countries, they have already moved away from the ballot system years ago. The main advantage of the application is that the same app can be divided into all the districts and they can submit their own voting data and data from all the districts is merged to show a complete result. It aims to improve efficiency in collecting votes and reducing the complexity involved in merging data from all the districts and showing a complete result.
 
+To run the program on your system, clone the repo. Open the project in Visual Studio and change the -connectionString variable in [DBConnection.cs](https://github.com/ashrhmn/VMS-OOP2-Project/blob/eb8bb1a63556fb1a90a923c04c33bb38c82e129f/VMS/Repository/DBConnection.cs#L11)
 
 ### **Requirement Analysis**
 
